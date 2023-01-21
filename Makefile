@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+         #
+#    By: victor <victor@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/13 13:18:09 by vgoret            #+#    #+#              #
-#    Updated: 2023/01/19 15:58:50 by vgoret           ###   ########.fr        #
+#    Updated: 2023/01/21 13:50:17 by victor           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ CC		=	gcc
 ################################################################################
 # * SRC * #
 
-SRC = parsing.c parsing2.c push_swap.c rules.c \
+SRC = parsing2.c push_swap.c rules.c \
 
 OBJ = ${SRC:.c=.o}
 
