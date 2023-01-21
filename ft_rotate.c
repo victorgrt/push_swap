@@ -1,0 +1,143 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_rotate.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: victor <victor@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/21 15:38:59 by victor            #+#    #+#             */
+/*   Updated: 2023/01/21 19:59:56 by victor           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
+
+void	ft_rotate(p_list **pile)
+{
+	p_list	*temp;
+	p_list	*first;
+
+	if (!pile || !*pile || !(*pile)->next)
+		return ;
+	first = *pile;
+	temp = *pile;
+	while (temp->next)
+		temp = temp->next;
+	temp->next = first;
+	*pile = first->next;
+	first->next = NULL;
+}
+
+void	ft_reverse_rotate(p_list **pile)
+{
+	p_list	*temp;
+	p_list	*last;
+
+	if (!pile || !*pile || !(*pile)->next)
+		return ;
+	temp = *pile;
+	while (temp->next->next)
+		temp = temp->next;
+	last = temp->next;
+	temp->next = NULL;
+	last->next = *pile;
+	*pile = last;
+}
+
+void ft_rotate_both(p_list **pile_a, p_list **pile_b)
+{
+    p_list *temp;
+    if (*pile_a && (*pile_a)->next)
+    {
+        temp = *pile_a;
+        while (temp->next)
+            temp = temp->next;
+        temp->next = *pile_a;
+        temp = (*pile_a)->next;
+        (*pile_a)->next = NULL;
+        *pile_a = temp;
+    }
+    if (*pile_b && (*pile_b)->next)
+    {
+        temp = *pile_b;
+        while (temp->next)
+            temp = temp->next;
+        temp->next = *pile_b;
+        temp = (*pile_b)->next;
+        (*pile_b)->next = NULL;
+        *pile_b = temp;
+    }
+}
+
+void ft_reverse_rotate_both(p_list **pile_a, p_list **pile_b)
+{
+    p_list *temp;
+    if (*pile_a && (*pile_a)->next)
+    {
+        temp = *pile_a;
+        while (temp->next->next)
+            temp = temp->next;
+        temp->next->next = *pile_a;
+        *pile_a = temp->next;
+        temp->next = NULL;
+    }
+    if (*pile_b && (*pile_b)->next)
+    {
+        temp = *pile_b;
+        while (temp->next->next)
+            temp = temp->next;
+        temp->next->next = *pile_b;
+        *pile_b = temp->next;
+        temp->next = NULL;
+    }
+}
+
+int main(int argc, char **argv)
+{
+    p_list *pile_a = NULL;
+    p_list *pile_b = NULL;
+    p_list *temp = NULL;
+    int i;
+    if (argc < 2)
+    {
+        printf("Usage: %s <list of integers>\n", argv[0]);
+        return 1;
+    }
+    for (i = 1; i < argc; i++)
+    {
+        temp = (p_list *)malloc(sizeof(p_list));
+        temp->content = atoi(argv[i]);
+        temp->next = pile_a;
+        pile_a = temp;
+    }
+    for (i = 1; i < argc; i++)
+    {
+        temp = (p_list *)malloc(sizeof(p_list));
+        temp->content = atoi(argv[i]);
+        temp->next = pile_b;
+        pile_b = temp;
+    }
+    printf("Pile a avant : ");
+    for (temp = pile_a; temp; temp = temp->next)
+        printf("%d ", temp->content);
+    printf("\n");
+
+     printf("Pile b avant: ");
+    for (temp = pile_b; temp; temp = temp->next)
+        printf("%d ", temp->content);
+    printf("\n");
+
+    ft_reverse_rotate_both(&pile_a, &pile_b);
+
+    printf("Pile a après : ");
+    for (temp = pile_a; temp; temp = temp->next)
+        printf("%d ", temp->content);
+    printf("\n");
+
+    printf("Pile b après : ");
+    for (temp = pile_b; temp; temp = temp->next)
+        printf("%d ", temp->content);
+    printf("\n");
+
+    return 0;
+}

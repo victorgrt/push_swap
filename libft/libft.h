@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
+/*   By: victor <victor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 14:03:43 by vgoret            #+#    #+#             */
-/*   Updated: 2023/01/19 16:32:37 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/01/21 15:53:34 by victor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int		ft_lstsize_p(p_list *pile);
 void	ft_lstadd_front_p(p_list **pile, p_list *new);
 void	ft_lstadd_back_p(p_list **pile, p_list *new);
 p_list	*ft_lstlast_p(p_list *pile);
+void	ft_swap(p_list **pile);
 
 t_list	*ft_lstnew(void *content);
 t_list	*ft_lstlast(t_list *lst);
