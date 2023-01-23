@@ -6,7 +6,7 @@
 #    By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/14 13:54:05 by vgoret            #+#    #+#              #
-#    Updated: 2023/01/19 16:30:58 by vgoret           ###   ########.fr        #
+#    Updated: 2023/01/23 16:13:19 by vgoret           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,6 @@ SRC = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft
 PROG = libft.a
 
 OBJ = ${SRC:.c=.o}
-
-
 
 .c.o:
 	cc -Wall -Wextra -Werror -c $< -o ${<:.c=.o}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victor <victor@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:38:59 by victor            #+#    #+#             */
-/*   Updated: 2023/01/21 19:59:56 by victor           ###   ########.fr       */
+/*   Updated: 2023/01/23 16:09:34 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,12 @@ void	ft_rotate(p_list **pile)
 	first = *pile;
 	temp = *pile;
 	while (temp->next)
-		temp = temp->next;
-	temp->next = first;
-	*pile = first->next;
+		temp = temp->next; //je fais aller temp a a fin
+	temp->next = first; //je met le premier a la fin
+	*pile = first->next;//je fais pointer le premier element vers le deuxieme de pile
 	first->next = NULL;
 }
+
 
 void	ft_reverse_rotate(p_list **pile)
 {
@@ -91,43 +92,46 @@ void ft_reverse_rotate_both(p_list **pile_a, p_list **pile_b)
         temp->next = NULL;
     }
 }
-
 int main(int argc, char **argv)
 {
     p_list *pile_a = NULL;
     p_list *pile_b = NULL;
     p_list *temp = NULL;
     int i;
-    if (argc < 2)
+
+    if (argc != 7)
     {
-        printf("Usage: %s <list of integers>\n", argv[0]);
+        printf("Met 6 arguments");
         return 1;
     }
-    for (i = 1; i < argc; i++)
+    for (i = 1; i <= 3; i++)
     {
         temp = (p_list *)malloc(sizeof(p_list));
         temp->content = atoi(argv[i]);
         temp->next = pile_a;
         pile_a = temp;
     }
-    for (i = 1; i < argc; i++)
+
+    for (i = 4; i <= 6; i++)
     {
         temp = (p_list *)malloc(sizeof(p_list));
         temp->content = atoi(argv[i]);
         temp->next = pile_b;
         pile_b = temp;
     }
+
     printf("Pile a avant : ");
     for (temp = pile_a; temp; temp = temp->next)
         printf("%d ", temp->content);
     printf("\n");
 
-     printf("Pile b avant: ");
+    printf("Pile b avant : ");
     for (temp = pile_b; temp; temp = temp->next)
         printf("%d ", temp->content);
     printf("\n");
 
-    ft_reverse_rotate_both(&pile_a, &pile_b);
+    ft_rotate(&pile_a);
+    ft_rotate(&pile_b);
 
     printf("Pile a après : ");
     for (temp = pile_a; temp; temp = temp->next)
