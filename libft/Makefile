@@ -6,7 +6,7 @@
 #    By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/14 13:54:05 by vgoret            #+#    #+#              #
-#    Updated: 2023/01/23 16:13:19 by vgoret           ###   ########.fr        #
+#    Updated: 2023/01/25 14:55:40 by vgoret           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,13 +17,15 @@ SRC = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft
     ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c\
 	ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstlast_bonus.c \
 	ft_lstadd_back_bonus.c ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c \
-	ft_lstmap_bonus.c ft_lstnew_int.c ft_lstsize_p.c ft_lstadd_front_p.c ft_lstadd_back_p.c \
-	ft_lstlast_p.c \
+	ft_lstmap_bonus.c ft_pilenew.c ft_pilesize.c ft_pileadd_front.c ft_pileadd_back.c \
+	ft_pilelast.c \
 
 
 PROG = libft.a
 
 OBJ = ${SRC:.c=.o}
+
+
 
 .c.o:
 	cc -Wall -Wextra -Werror -c $< -o ${<:.c=.o}

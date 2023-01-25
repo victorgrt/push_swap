@@ -6,7 +6,7 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:38:59 by victor            #+#    #+#             */
-/*   Updated: 2023/01/23 16:09:34 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/01/23 16:21:57 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,8 @@ void ft_reverse_rotate_both(p_list **pile_a, p_list **pile_b)
         temp->next = NULL;
     }
 }
-int main(int argc, char **argv)
+
+/*int main(int argc, char **argv)
 {
     p_list *pile_a = NULL;
     p_list *pile_b = NULL;
@@ -144,4 +145,4 @@ int main(int argc, char **argv)
     printf("\n");
 
     return 0;
-}
+}*/
