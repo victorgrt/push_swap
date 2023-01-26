@@ -6,7 +6,7 @@
 #    By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/13 13:18:09 by vgoret            #+#    #+#              #
-#    Updated: 2023/01/25 17:47:46 by vgoret           ###   ########.fr        #
+#    Updated: 2023/01/26 16:58:47 by vgoret           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ CC		=	gcc
 # * SRC * #
 
 SRC = algo3.c ft_atol.c ft_checker.c parsing.c ft_push.c ft_rotate.c ft_swap.c \
+	algo5.c \
 
 OBJ = ${SRC:.c=.o}
 
@@ -31,7 +32,8 @@ all: ${NAME} ok_util
 
 ${NAME} : ${OBJ}
 	make -C libft	
-	${CC} ${OBJ} libft/libft.a -o ${NAME}
+	make -C ft_printf	
+	${CC} ${OBJ} libft/libft.a ft_printf/ft_printf.a -o ${NAME}
 
 
 %.o : %.c
@@ -43,6 +45,8 @@ clean:
 fclean:	clean fclean_util
 	@rm -f libft/libft.a
 	@rm -f libft/*.o
+	@rm -f ft_printf/ft_printf.a
+	@rm -f ft_printf/*.o
 	@rm -f ${PROG}
 	@rm -f ${OBJ}
 	@rm -f ${NAME}

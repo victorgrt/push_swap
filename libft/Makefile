@@ -6,7 +6,7 @@
 #    By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/14 13:54:05 by vgoret            #+#    #+#              #
-#    Updated: 2023/01/25 14:55:40 by vgoret           ###   ########.fr        #
+#    Updated: 2023/01/26 16:48:58 by vgoret           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,12 +20,9 @@ SRC = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft
 	ft_lstmap_bonus.c ft_pilenew.c ft_pilesize.c ft_pileadd_front.c ft_pileadd_back.c \
 	ft_pilelast.c \
 
-
 PROG = libft.a
 
 OBJ = ${SRC:.c=.o}
-
-
 
 .c.o:
 	cc -Wall -Wextra -Werror -c $< -o ${<:.c=.o}

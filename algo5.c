@@ -1,59 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo3.c                                            :+:      :+:    :+:   */
+/*   algo5.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/25 17:47:33 by vgoret            #+#    #+#             */
-/*   Updated: 2023/01/26 16:36:51 by vgoret           ###   ########.fr       */
+/*   Created: 2023/01/26 14:12:58 by vgoret            #+#    #+#             */
+/*   Updated: 2023/01/26 16:18:40 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_printf_algo3(int nb)
-{
-	int	i;
 
-	i = 0;
-	ft_printf("Instructions (%d) :", nb);
-	while (i < nb)
-	{
-		ft_printf("sa\n");
-		i++;
-	}
-	ft_printf("\n");
-}
-
-int	algo3(p_list **pile)
-{
-	int	compteur;
-
-	compteur = 0;
-	if ((*pile)->content > (*pile)->next->content)
-        {
-			ft_swap(pile);
-			compteur += 1;
-		}
-	if ((*pile)->next->content > (*pile)->next->next->content)
-    {
-        ft_swap(&((*pile)->next));
-		compteur += 1;
-        if ((*pile)->content > (*pile)->next->content)
-		{
-            ft_swap(pile);
-			compteur += 1;
-		}
-	}
-	return (compteur);
-}
 
 // int main(int ac, char **av)
 // {
 // 	int i = 1;
-// 	int j = 0;
-// 	int compteur = 0;
 // 	p_list	*pile_a;
 // 	p_list	*pile_b;
 // 	p_list	*new;
@@ -88,13 +51,8 @@ int	algo3(p_list **pile)
 // 			return (1);
 // 		}
 // 	}
-// 	compteur = algo3(&pile_a);
-// 	printf("Instructions (%d):\n", compteur);
-// 	while (j < compteur)
-// 	{
-// 		printf("sa\n");
-// 		j++;
-// 	}
+// 	push_swap(&pile_a, &pile_b);
+// 	printf("Instructions :\n");
 // 	while (pile_a->next)
 // 	{
 // 		printf("%d\n", pile_a->content);
