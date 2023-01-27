@@ -6,7 +6,7 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 13:58:39 by victor            #+#    #+#             */
-/*   Updated: 2023/01/23 15:29:56 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/01/27 18:14:03 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@ void    ft_push_a(p_list **pile_a, p_list **pile_b)
         return ;
     temp = *pile_b;//on stock le premier element de b
     *pile_b = (*pile_b)->next;// on fait poitter le premier vers le deuxieme
-    temp->next = *pile_a;//on fait pointer le suivant de temp vers le premier de A
-    *pile_a = temp; //on fait pointer a vers temp pour contient le premier element de b
+    ft_pileadd_front(pile_a, temp);
+	// temp->next = *pile_a;//on fait pointer le suivant de temp vers le premier de A
+    // *pile_a = temp; //on fait pointer a vers temp pour contient le premier element de b
 }
 
 void	ft_push_b(p_list **pile_a, p_list **pile_b)
@@ -32,8 +33,9 @@ void	ft_push_b(p_list **pile_a, p_list **pile_b)
 		return ;
 	temp = *pile_a; //on stock le premier el dans temp;
 	*pile_a = (*pile_a)->next;//on fait avancer la pile A
-	temp->next = *pile_b;//on fait pointer le suivant de temp vers elem 1 de b
-	*pile_b = temp; //on assigne au premier element de b temp;
+	ft_pileadd_front(pile_b, temp);
+	// temp->next = *pile_b;//on fait pointer le suivant de temp vers elem 1 de b
+	// *pile_b = temp; //on assigne au premier element de b temp;
 }
 
 // int main(int argc, char **argv)
