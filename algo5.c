@@ -6,7 +6,7 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 17:39:14 by vgoret            #+#    #+#             */
-/*   Updated: 2023/01/27 18:39:06 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/01/30 14:40:33 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	algo5(p_list **pile_a, p_list **pile_b)
 {
-	
 	if (ft_check_croissant(*pile_a) == 0)
 	{
 		ft_printf("Pile deja dans l'ordre croissant");
@@ -23,31 +22,23 @@ int	algo5(p_list **pile_a, p_list **pile_b)
 	while (ft_pilesize(*pile_a) != 3)
 	{	
 		while ((*pile_a)->content != ft_pilefind_min(*pile_a))
+		{
 			ft_rotate(pile_a);
+			ft_printf("ra\n");
+		}
 		ft_push_b(pile_a, pile_b);
+		ft_printf("pb\n");
 	}
 	algo3(pile_a);
 	while (*pile_b)
 	{
 		ft_push_a(pile_a, pile_b);
+		ft_printf("pa\n");
 	}
-	
-	//ft_push_b(pile_b, pile_a);
-	//ft_push_b(pile_b, pile_a);
-	// while (ft_check_croissant(*pile_a) != 0)
-	// 	ft_rotate(pile_a);
-	// if (ft_check_decroissant(*pile_b) == 1)
-	// 	ft_swap(pile_b);
-	// if ((*pile_a)->content < (*pile_b)->content)
-	// 	ft_push_a(pile_a, pile_b);
-	// if ((*pile_a)->content > (*pile_a)->next->content)
-	// 	ft_swap(pile_a);
-	// if ((*pile_a)->content > (*pile_b)->content)
-	// 	ft_push_a(pile_a, pile_b);
 	return (0);
 }
 
-int	main(int ac, char **av)
+/*int	main(int ac, char **av)
 {
 	int i = 1;
 	p_list *pile_a;
@@ -67,7 +58,8 @@ int	main(int ac, char **av)
 		i++;
 	}
 	ft_print_pile(pile_a);
+	ft_printf("\n");
 	algo5(&pile_a, &pile_b);
 	ft_print_piles(pile_a, pile_b);
 	return (0);
-}
+}*/

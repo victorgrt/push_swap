@@ -6,7 +6,7 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 17:47:33 by vgoret            #+#    #+#             */
-/*   Updated: 2023/01/26 16:36:51 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/01/30 14:47:44 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,20 @@ int	algo3(p_list **pile)
 
 	compteur = 0;
 	if ((*pile)->content > (*pile)->next->content)
-        {
-			ft_swap(pile);
-			compteur += 1;
-		}
+    {
+		ft_swap(pile);
+		ft_printf("sa\n");
+		compteur += 1;
+	}
 	if ((*pile)->next->content > (*pile)->next->next->content)
     {
-        ft_swap(&((*pile)->next));
+		ft_swap(&((*pile)->next));
+		ft_printf("sa\n");
 		compteur += 1;
         if ((*pile)->content > (*pile)->next->content)
 		{
-            ft_swap(pile);
+        	ft_swap(pile);
+			ft_printf("sa\n");
 			compteur += 1;
 		}
 	}

@@ -6,12 +6,14 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 14:36:12 by vgoret            #+#    #+#             */
-/*   Updated: 2023/01/23 15:30:02 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/01/30 14:40:11 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/*Intervertit les 2 premiers éléments au sommet de la pile a.
+Ne fait rien s’il n’y en a qu’un ou aucun.*/
 void	ft_swap(p_list **pile)
 {
 	p_list	*temp;
@@ -22,13 +24,12 @@ void	ft_swap(p_list **pile)
 	*pile = (*pile)->next;
 	temp->next = (*pile)->next;
 	(*pile)->next = temp;
-}/*Intervertit les 2 premiers éléments au sommet de la pile a.
-Ne fait rien s’il n’y en a qu’un ou aucun.*/
+}
 
-void ft_swap_s(p_list **pile_a, p_list **pile_b)
+void	ft_swap_s(p_list **pile_a, p_list **pile_b)
 {
-    ft_swap(pile_a);
-    ft_swap(pile_b);
+	ft_swap(pile_a);
+	ft_swap(pile_b);
 }
 
 // int main(int argc, char **argv)

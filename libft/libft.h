@@ -6,7 +6,7 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 14:03:43 by vgoret            #+#    #+#             */
-/*   Updated: 2023/01/26 16:50:17 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/01/30 14:49:22 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct s_list
 
 typedef struct i_list
 {
-	int			content;
+	int				content;
 	struct i_list	*next;
 }				p_list;
 
@@ -85,6 +85,5 @@ int		ft_taille(const char *str);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 int		ft_atoi(const char *str);
-
 
 #endif

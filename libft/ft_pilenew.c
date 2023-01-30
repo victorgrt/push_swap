@@ -6,7 +6,7 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 14:58:44 by vgoret            #+#    #+#             */
-/*   Updated: 2023/01/25 14:47:36 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/01/30 15:05:31 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,4 @@ p_list	*ft_pilenew(int content)
 	char	tab[] = "BABINKS";
 	printf("%s\n", (char *)(ft_lstnew(tab)->content));
 	return (0);
-}*/                               
+}*/

@@ -6,7 +6,7 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 16:12:25 by vgoret            #+#    #+#             */
-/*   Updated: 2023/01/25 17:10:06 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/01/30 14:41:28 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_check_args(char **av, int ac)
 {
 	int	i;
-	int j;
+	int	j;
 
 	i = 1;
 	while (i < ac)
@@ -28,7 +28,6 @@ int	ft_check_args(char **av, int ac)
 		j = i + 1;
 		while (j < ac)
 		{
-			//printf("%lld\t%lld\n", ft_atol(&av[i]), ft_atol(&av[j]));
 			if (ft_atol(av[i]) == ft_atol(av[j]))
 				return (1);
 			j++;
@@ -37,19 +36,6 @@ int	ft_check_args(char **av, int ac)
 	}
 	return (0);
 }
-
-// int	ft_check_len(char *av)
-// {
-// 	int	i;
-// 	int	len;
-
-// 	i = 1;
-// 	while (av[i])
-// 	{
-		
-// 	}
-	
-// }
 
 int	ft_master_checker(char **av, int ac)
 {
@@ -64,13 +50,10 @@ int	ft_master_checker(char **av, int ac)
 			return (1);
 		if (ft_check_args(av, ac) == 1)
 			return (2);
-
 		i++;
 	}
-
 	return (0);
 }	
-
 
 /*int	main(int ac, char **av)
 {
