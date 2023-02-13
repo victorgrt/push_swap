@@ -6,7 +6,7 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 13:58:39 by victor            #+#    #+#             */
-/*   Updated: 2023/01/30 15:26:31 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/02/13 14:10:10 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	ft_push_a(p_list **pile_a, p_list **pile_b)
 	temp = *pile_b;
 	*pile_b = (*pile_b)->next;
 	ft_pileadd_front(pile_a, temp);
+	write(1, "pa\n", 3);
 }
 
 void	ft_push_b(p_list **pile_a, p_list **pile_b)
@@ -32,6 +33,7 @@ void	ft_push_b(p_list **pile_a, p_list **pile_b)
 	temp = *pile_a;
 	*pile_a = (*pile_a)->next;
 	ft_pileadd_front(pile_b, temp);
+	write(1, "pb\n", 3);
 }
 
 // int main(int argc, char **argv)

@@ -6,7 +6,7 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 15:58:10 by vgoret            #+#    #+#             */
-/*   Updated: 2023/01/30 15:03:52 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/02/08 15:14:47 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,48 +14,48 @@
 #include <limits.h>
 #include "push_swap.h"
 
-int	main(int ac, char **av)
-{
-	int		i;
-	p_list	*pile_a;
-	p_list	*pile_b;
-	p_list	*new;	
+// int	main(int ac, char **av)
+// {
+// 	int		i;
+// 	p_list	*pile_a;
+// 	p_list	*pile_b;
+// 	p_list	*new;	
 
-	i = 1;
-	pile_a = 0;
-	pile_b = 0;
-	if (ac < 2)
-	{
-		ft_printf("Pas assez d'arguments");
-		return (1);
-	}
-	while (i < ac)
-	{
-		if (ft_master_checker(av, ac) == 0)
-		{
-			new = ft_pilenew(ft_atol(av[i]));
-			ft_pileadd_back(&pile_a, new);
-			i++;
-		}
-		else if (ft_master_checker(av, ac) == 1)
-		{
-			ft_printf("C'est pas un int");
-			return (1);
-		}
-		else if (ft_master_checker(av, ac) == 2)
-		{
-			ft_printf("Doublon");
-			return (1);
-		}
-	}
-	ft_print_pile(pile_a);
-	if (ac <= 4)
-		algo3(&pile_a);
-	else
-		algo5(&pile_a, &pile_b);
-	ft_print_pile(pile_a);
-	return (0);
-}
+// 	i = 1;
+// 	pile_a = 0;
+// 	pile_b = 0;
+// 	if (ac < 2)
+// 	{
+// 		ft_printf("Pas assez d'arguments");
+// 		return (1);
+// 	}
+// 	while (i < ac)
+// 	{
+// 		if (ft_master_checker(av, ac) == 0)
+// 		{
+// 			new = ft_pilenew(ft_atol(av[i]));
+// 			ft_pileadd_back(&pile_a, new);
+// 			i++;
+// 		}
+// 		else if (ft_master_checker(av, ac) == 1)
+// 		{
+// 			ft_printf("C'est pas un int");
+// 			return (1);
+// 		}
+// 		else if (ft_master_checker(av, ac) == 2)
+// 		{
+// 			ft_printf("Doublon");
+// 			return (1);
+// 		}
+// 	}
+// 	ft_print_pile(pile_a);
+// 	if (ac <= 4)
+// 		algo3(&pile_a);
+// 	else
+// 		algo5(&pile_a, &pile_b);
+// 	ft_print_pile(pile_a);
+// 	return (0);
+// }
 
 /*int main(int ac, char **av)
 {
