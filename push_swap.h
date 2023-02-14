@@ -6,7 +6,7 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 16:32:25 by vgoret            #+#    #+#             */
-/*   Updated: 2023/02/13 14:25:15 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/02/14 11:08:00 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,6 @@ void	ft_atol_error_print(char *str);
 
 long	ft_atol(char *str);
 
-p_list	*ft_find_mediane(p_list *pile);
+int	ft_find_mediane(p_list *pile);
 
 #endif
