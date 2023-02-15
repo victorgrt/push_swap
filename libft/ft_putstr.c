@@ -6,11 +6,11 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 14:55:32 by vgoret            #+#    #+#             */
-/*   Updated: 2022/11/25 14:39:17 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/02/15 15:52:45 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 int	ft_putstr(char *str)
 {

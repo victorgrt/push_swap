@@ -6,7 +6,7 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 14:12:58 by vgoret            #+#    #+#             */
-/*   Updated: 2023/02/13 12:58:06 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/02/15 15:38:22 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ int	ft_chose_rotate(p_list *maillon, p_list *pile_b)
 	int rr;
 	int r;
 
+	if (!maillon || !pile_b)
+		return (-666);
 	rr = 0;
 	r = ft_pilesize(pile_b);
 	while (maillon->next != NULL)
@@ -95,6 +97,8 @@ int	algo500(p_list **pile_a, p_list **pile_b)
 	}
 	return (1);
 }
+
+
 
 // int	main(int ac, char **av)
 // {
