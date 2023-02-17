@@ -6,7 +6,7 @@
 /*   By: victor <victor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 16:32:25 by vgoret            #+#    #+#             */
-/*   Updated: 2023/02/17 12:40:38 by victor           ###   ########.fr       */
+/*   Updated: 2023/02/17 13:53:59 by victor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,6 @@ void	ft_set_position(p_list **pile);
 
 void	ft_fill_b_high(p_list **pile_a, p_list **pile_b);
 void	ft_fill_b_low(p_list **pile_a, p_list **pile_b);
+int	ft_nexthighest(int ref, p_list *pile_b);
 
 #endif

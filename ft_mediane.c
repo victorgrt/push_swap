@@ -6,7 +6,7 @@
 /*   By: victor <victor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 13:41:12 by vgoret            #+#    #+#             */
-/*   Updated: 2023/02/17 12:37:26 by victor           ###   ########.fr       */
+/*   Updated: 2023/02/17 13:53:14 by victor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,31 +96,54 @@ void	ft_fill_b_low(p_list **pile_a, p_list **pile_b)
 		i++;
 	}
 }
+// int	ft_nexthighest(int ref, p_list *pile_a)
+// {
+// 	p_list	*current;
+// 	int	max;
 
-int	ft_nexthighest(int ref, p_list *pile_b)
-{
-	p_list	*current;
-	int		max;
+// 	if (!pile_a)
+// 		return (0);
+// 	current = pile_a;
+// 	max = ft_pilefind_max(pile_a);
+// 	while (pile_a)
+// 	{
+// 		if ((pile_a->content > ref) && (pile_a->next->content < max))
+// 			max = pile_a->content;
+// 		pile_a = pile_a->next;
+// 	}
+// 	if (max > ref)
+// 	{
+// 		while (current->content != max)
+// 			current = current->next;
+// 		return (current->content);
+// 	}
+// 	return (max);
+// }
 
-	if (!pile_b)
-		return (0);
-	current = pile_b;
-	max = ft_pilefind_max(pile_b);
-	while (pile_b)
-	{
-		if ((pile_b->content > ref) && (!pile_b->next || (pile_b->next->content < max)))
-			max = pile_b->content;
-		pile_b = pile_b->next;
-	}
-	if (max < ref)
-	{
-		pile_b = current;
-		while (pile_b->content != max)
-			pile_b = pile_b->next;
-		return (pile_b->content);
-	}
-	return (max);
-}
+// int	ft_nexthighest(int ref, p_list *pile_b)
+// {
+// 	p_list	*current;
+// 	int		max;
+
+// 	if (!pile_b)
+// 		return (0);
+// 	current = pile_b;
+// 	max = ft_pilefind_max(pile_b);
+// 	while (pile_b)
+// 	{
+// 		if ((pile_b->content > ref) && (!pile_b->next || (pile_b->next->content < max)))
+// 			max = pile_b->content;
+// 		pile_b = pile_b->next;
+// 	}
+// 	if (max < ref)
+// 	{
+// 		pile_b = current;
+// 		while (pile_b->content != max)
+// 			pile_b = pile_b->next;
+// 		return (pile_b->content);
+// 	}
+// 	return (max);
+// }
 
 int	ft_cost(p_list *pile_a, p_list	*pile_b)
 {
@@ -192,7 +215,7 @@ void	ft_push_next_highest(p_list **pile_a, p_list **pile_b)
 
 // int	main(int ac, char **av)
 // {
-// 	int i = 1;
+// 	int i = 1;	
 // 	p_list *pile_a;
 // 	p_list	*pile_b;
 // 	p_list	*new;

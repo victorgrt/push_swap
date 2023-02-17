@@ -6,7 +6,7 @@
 /*   By: victor <victor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 12:43:03 by victor            #+#    #+#             */
-/*   Updated: 2023/02/17 13:40:31 by victor           ###   ########.fr       */
+/*   Updated: 2023/02/17 16:23:17 by victor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void    ft_push_low_cost(p_list **pile_a, p_list **pile_b)
     size = ft_pilesize(*pile_b);
     ref = INT_MAX;
     temp2 = (*pile_b);
+	
     while (i < size)
     {
         if (ref > (temp2)->cmd)
@@ -58,6 +59,42 @@ void    ft_push_low_cost(p_list **pile_a, p_list **pile_b)
     else    
         ft_rotate(pile_b);
 }
+
+int	ft_nexthighest(int ref, p_list *pile_a)
+{
+	p_list	*current;
+	int		next_highest;
+	
+	if (!pile_a)
+		return (0);
+	current = pile_a;
+	next_highest = INT16_MAX;
+	while (pile_a)
+	{
+		if (pile_a->content > ref && pile_a->content < next_highest) // si la valeur est supérieure à ref et plus proche de ref que la précédente plus grande valeur trouvée
+			next_highest = pile_a->content;
+		pile_a = pile_a->next;
+	}
+
+	if (next_highest != INT_MAX) // si une valeur supérieure a été trouvée
+		return (next_highest);
+
+	// si aucune valeur supérieure n'a été trouvée, renvoie la valeur maximale dans la pile_a
+	return ft_pilefind_max(current);
+}
+
+/*fonction qui va rota pile_a pour trouver le next highest
+et incrementer cmd pour savoir lequel est le plus rentable
+*/
+
+// void	ft_good_push(p_list **pile_a, p_list **pile_b)
+// {
+// 	int	next_highest;
+
+// 	next_highest = ft_nexthighest()
+// }
+
+
 
 int	main(int ac, char **av)
 {
@@ -96,5 +133,12 @@ int	main(int ac, char **av)
 		printf("Valeur : %d\tPosition : %d\tCmd : %d\n", temp->content, temp->position, temp->cmd);
 		temp = temp->next;
 	}
+	while (ft_pilesize(pile_b) != 0)
+	{
+		if (pile_a->content == ft_nexthighest(pile_b->content, pile_a))
+			ft_push_a(&pile_a, &pile_b);
+		ft_rotate(&pile_a);
+	}
+    ft_print_piles(pile_a, pile_b);
 	return (0);
 }
