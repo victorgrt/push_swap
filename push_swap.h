@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
+/*   By: victor <victor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 16:32:25 by vgoret            #+#    #+#             */
-/*   Updated: 2023/02/15 13:39:25 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/02/17 12:40:38 by victor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,11 @@ long	ft_atol(char *str);
 
 int	ft_find_mediane(p_list *pile);
 int	ft_chose_rotate(p_list *maillon, p_list *pile_b);
+
+void	ft_set_cmd(p_list **pile);
+void	ft_set_position(p_list **pile);
+
+void	ft_fill_b_high(p_list **pile_a, p_list **pile_b);
+void	ft_fill_b_low(p_list **pile_a, p_list **pile_b);
 
 #endif

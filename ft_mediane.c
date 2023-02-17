@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_mediane.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
+/*   By: victor <victor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 13:41:12 by vgoret            #+#    #+#             */
-/*   Updated: 2023/02/15 18:18:44 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/02/17 12:37:26 by victor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -190,39 +190,39 @@ void	ft_push_next_highest(p_list **pile_a, p_list **pile_b)
 	//printf("travail termine");
 }
 
-int	main(int ac, char **av)
-{
-	int i = 1;
-	p_list *pile_a;
-	p_list	*pile_b;
-	p_list	*new;
+// int	main(int ac, char **av)
+// {
+// 	int i = 1;
+// 	p_list *pile_a;
+// 	p_list	*pile_b;
+// 	p_list	*new;
 
-	pile_a = 0;
-	pile_b = 0;
-	if (ac < 2)
-	{
-		ft_printf("erreur");
-		return (1);
-	}
-	while (i < ac)
-	{
-		new = ft_pilenew(ft_atol(av[i]));
-		ft_pileadd_back(&pile_a, new);
-		i++;
-	}
-	printf("Max : %d\nMediane : %d\n", ft_pilefind_max(pile_a), ft_find_mediane(pile_a));
-	ft_print_piles(pile_a, pile_b);
-	//algo5000(&pile_a, &pile_b);
-	//ft_print_piles(pile_a, pile_b);
-	 ft_fill_b_low(&pile_a, &pile_b);
-	 ft_print_piles(pile_a, pile_b);
-	 ft_fill_b_high(&pile_a, &pile_b);
-	 ft_print_piles(pile_a, pile_b);
-	 while (ft_pilesize(pile_b) != 0)
-	 {
-	 	ft_push_next_highest(&pile_a, &pile_b);
-		ft_print_piles(pile_a, pile_b);
-	 }
-	 ft_print_piles(pile_a, pile_b);
-	return (0);
-}
+// 	pile_a = 0;
+// 	pile_b = 0;
+// 	if (ac < 2)
+// 	{
+// 		ft_printf("erreur");
+// 		return (1);
+// 	}
+// 	while (i < ac)
+// 	{
+// 		new = ft_pilenew(ft_atol(av[i]));
+// 		ft_pileadd_back(&pile_a, new);
+// 		i++;
+// 	}
+// 	printf("Max : %d\nMediane : %d\n", ft_pilefind_max(pile_a), ft_find_mediane(pile_a));
+// 	ft_print_piles(pile_a, pile_b);
+// 	//algo5000(&pile_a, &pile_b);
+// 	//ft_print_piles(pile_a, pile_b);
+// 	 ft_fill_b_low(&pile_a, &pile_b);
+// 	 ft_print_piles(pile_a, pile_b);
+// 	 ft_fill_b_high(&pile_a, &pile_b);
+// 	 ft_print_piles(pile_a, pile_b);
+// 	 while (ft_pilesize(pile_b) != 0)
+// 	 {
+// 	 	ft_push_next_highest(&pile_a, &pile_b);
+// 		ft_print_piles(pile_a, pile_b);
+// 	 }
+// 	 ft_print_piles(pile_a, pile_b);
+// 	return (0);
+// }

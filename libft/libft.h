@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
+/*   By: victor <victor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 14:03:43 by vgoret            #+#    #+#             */
-/*   Updated: 2023/01/30 14:49:22 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/02/17 12:22:46 by victor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ typedef struct s_list
 
 typedef struct i_list
 {
+	int				position;
+	int				cmd;
 	int				content;
 	struct i_list	*next;
 }				p_list;
