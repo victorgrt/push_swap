@@ -6,13 +6,13 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:38:59 by victor            #+#    #+#             */
-/*   Updated: 2023/02/13 14:12:37 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/02/20 17:09:48 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_rotate(p_list **pile)
+void	ft_rotate_a(p_list **pile)
 {
 	p_list	*temp;
 	p_list	*first;
@@ -26,10 +26,27 @@ void	ft_rotate(p_list **pile)
 	temp->next = first;
 	*pile = first->next;
 	first->next = NULL;
-	write(1, "r\n", 2);
+	write(1, "ra\n", 3);
 }
 
-void	ft_reverse_rotate(p_list **pile)
+void	ft_rotate_b(p_list **pile)
+{
+	p_list	*temp;
+	p_list	*first;
+
+	if (!pile || !*pile || !(*pile)->next)
+		return ;
+	first = *pile;
+	temp = *pile;
+	while (temp->next)
+		temp = temp->next;
+	temp->next = first;
+	*pile = first->next;
+	first->next = NULL;
+	write(1, "rb\n", 3);
+}
+
+void	ft_reverse_rotate_a(p_list **pile)
 {
 	p_list	*temp;
 	p_list	*last;
@@ -43,6 +60,24 @@ void	ft_reverse_rotate(p_list **pile)
 	temp->next = NULL;
 	last->next = *pile;
 	*pile = last;
+	write(1, "rra\n", 4);
+}
+
+void	ft_reverse_rotate_b(p_list **pile)
+{
+	p_list	*temp;
+	p_list	*last;
+
+	if (!pile || !*pile || !(*pile)->next)
+		return ;
+	temp = *pile;
+	while (temp->next->next)
+		temp = temp->next;
+	last = temp->next;
+	temp->next = NULL;
+	last->next = *pile;
+	*pile = last;
+	write(1, "rrb\n", 4);
 }
 
 void	ft_rotate_both(p_list **pile_a, p_list **pile_b)
@@ -69,7 +104,7 @@ void	ft_rotate_both(p_list **pile_a, p_list **pile_b)
 		(*pile_b)->next = NULL;
 		*pile_b = temp;
 	}
-	write(1, "rr\n", 3);
+	write(1, "rarb\n", 5);
 }
 
 void	ft_reverse_rotate_both(p_list **pile_a, p_list **pile_b)

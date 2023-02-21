@@ -6,7 +6,7 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 17:39:14 by vgoret            #+#    #+#             */
-/*   Updated: 2023/02/09 13:07:48 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/02/20 18:05:54 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,18 @@
 int	algo5(p_list **pile_a, p_list **pile_b)
 {
 	if (ft_check_croissant(*pile_a) == 0)
-	{
-		ft_printf("Pile deja dans l'ordre croissant");
 		return (0);
-	}
 	while (ft_pilesize(*pile_a) != 3)
 	{	
 		while ((*pile_a)->content != ft_pilefind_min(*pile_a))
 		{
-			ft_rotate(pile_a);
-			//ft_printf("ra\n");
+			ft_rotate_a(pile_a);
 		}
 		ft_push_b(pile_a, pile_b);
-		//ft_printf("pb\n");
 	}
 	algo3(pile_a);
 	while (*pile_b)
-	{
 		ft_push_a(pile_a, pile_b);
-		//ft_printf("pa\n");
-	}
 	return (0);
 }
 

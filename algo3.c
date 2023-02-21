@@ -6,7 +6,7 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 17:47:33 by vgoret            #+#    #+#             */
-/*   Updated: 2023/02/13 14:13:45 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/02/20 18:08:38 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,30 +26,20 @@ void	ft_printf_algo3(int nb)
 	ft_printf("\n");
 }
 
-int	algo3(p_list **pile)
+void	algo3(p_list **pile)
 {
-	int	compteur;
-
-	compteur = 0;
 	if ((*pile)->content > (*pile)->next->content)
     {
 		ft_swap(pile);
 		write(1, "sa\n", 3);
-		compteur += 1;
 	}
 	if ((*pile)->next->content > (*pile)->next->next->content)
     {
 		ft_swap(&((*pile)->next));
 		write(1, "sa\n", 3);
-		compteur += 1;
         if ((*pile)->content > (*pile)->next->content)
-		{
         	ft_swap(pile);
-			write(1, "sa\n", 3);
-			compteur += 1;
-		}
 	}
-	return (compteur);
 }
 
 // int main(int ac, char **av)

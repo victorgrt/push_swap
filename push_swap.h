@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victor <victor@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 16:32:25 by vgoret            #+#    #+#             */
-/*   Updated: 2023/02/17 13:53:59 by victor           ###   ########.fr       */
+/*   Updated: 2023/02/20 18:24:48 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@
 # include "./libft/libft.h"
 # include "./ft_printf/ft_printf.h"
 
-void	ft_rotate(p_list **pile);
-void	ft_reverse_rotate(p_list **pile);
+void	ft_rotate_a(p_list **pile);
+void	ft_rotate_b(p_list **pile);
+void	ft_reverse_rotate_b(p_list **pile);
+void	ft_reverse_rotate_a(p_list **pile);
 void	ft_rotate_both(p_list **pile_a, p_list **pile_b);
 void	ft_reverse_rotate_both(p_list **pile_a, p_list **pile_b);
 void	ft_push_a(p_list **pile_a, p_list **pile_b);
@@ -32,7 +34,8 @@ int		ft_check_args(char **av, int ac);
 int		ft_master_checker(char **av, int ac);
 int		algo500(p_list **pile_a, p_list **pile_b);
 int		algo5(p_list **pile_a, p_list **pile_b);
-int		algo3(p_list **pile);
+void		algo3(p_list **pile);
+void	algo_three(p_list **lst_a);
 int		algo100(p_list **pile_a, p_list **pile_b);
 int		algo_radix(p_list **pile_a, p_list **pile_b);
 int		ft_pilefind_min(p_list *pile);
@@ -46,17 +49,23 @@ void	ft_printf_algo3(int nb);
 void	ft_print_pile(p_list *pile_a);
 void	ft_print_piles(p_list *pile_a, p_list *pile_b);
 void	ft_atol_error_print(char *str);
+void	algo_big(p_list **pile_a, p_list **pile_b);
+int	ft_strokesa_to_top(p_list **pile_a, p_list **pile_b);
 
 long	ft_atol(char *str);
 
 int	ft_find_mediane(p_list *pile);
 int	ft_chose_rotate(p_list *maillon, p_list *pile_b);
 
+void    ft_push_low_cost(p_list **pile_a, p_list **pile_b);
 void	ft_set_cmd(p_list **pile);
+void    ft_cmd_to_top(p_list *pile);
 void	ft_set_position(p_list **pile);
+void	ft_push_next_highest(p_list **pile_a, p_list **pile_b);
 
 void	ft_fill_b_high(p_list **pile_a, p_list **pile_b);
 void	ft_fill_b_low(p_list **pile_a, p_list **pile_b);
 int	ft_nexthighest(int ref, p_list *pile_b);
+void	ft_push_next_highest_true(p_list **pile_a, p_list **pile_b);
 
 #endif

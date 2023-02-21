@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_mediane.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victor <victor@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 13:41:12 by vgoret            #+#    #+#             */
-/*   Updated: 2023/02/17 13:53:14 by victor           ###   ########.fr       */
+/*   Updated: 2023/02/20 16:00:47 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	ft_fill_b_high(p_list **pile_a, p_list **pile_b)
 		if ((*pile_a)->content != max)
 			ft_push_b(pile_a, pile_b);
 		else
-			ft_rotate(pile_a);
+			ft_rotate_a(pile_a);
 	}
 }
 
@@ -92,7 +92,7 @@ void	ft_fill_b_low(p_list **pile_a, p_list **pile_b)
 		if ((*pile_a)->content < mediane)
 			ft_push_b(pile_a, pile_b);
 		else
-			ft_rotate(pile_a);
+			ft_rotate_a(pile_a);
 		i++;
 	}
 }
@@ -192,7 +192,7 @@ void	ft_push_next_highest(p_list **pile_a, p_list **pile_b)
        return ;
 	min_cost = ft_cost(*pile_a, *pile_b);
 	current_b = *pile_b;
-	ref = 0;
+	ref = (*pile_b)->content;
 	while (current_b)
 	{
 		if (ft_cost(*pile_a, current_b) < min_cost)
@@ -207,7 +207,7 @@ void	ft_push_next_highest(p_list **pile_a, p_list **pile_b)
 	while ((*pile_a)->content != next_highest)
 	{
 		//printf("test %d\n", (*pile_a)->content);
-		ft_rotate(pile_a);
+		ft_rotate_a(pile_a);
 	}
 	ft_push_a(pile_a, pile_b);
 	//printf("travail termine");
