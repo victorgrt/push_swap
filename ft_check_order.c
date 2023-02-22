@@ -6,7 +6,7 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 17:10:54 by vgoret            #+#    #+#             */
-/*   Updated: 2023/01/30 15:04:41 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/02/22 15:03:38 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,7 @@ int	ft_check_decroissant(p_list *pile)
 	while (pile->next)
 	{		
 		if (pile->content < pile->next->content)
-		{
 			return (1);
-		}
 		pile = pile->next;
 	}
 	return (0);

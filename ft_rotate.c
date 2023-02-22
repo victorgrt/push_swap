@@ -6,7 +6,7 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:38:59 by victor            #+#    #+#             */
-/*   Updated: 2023/02/20 17:09:48 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/02/22 14:03:25 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ void	ft_rotate_both(p_list **pile_a, p_list **pile_b)
 		(*pile_b)->next = NULL;
 		*pile_b = temp;
 	}
-	write(1, "rarb\n", 5);
+	write(1, "rr\n", 3);
 }
 
 void	ft_reverse_rotate_both(p_list **pile_a, p_list **pile_b)
@@ -129,7 +129,7 @@ void	ft_reverse_rotate_both(p_list **pile_a, p_list **pile_b)
 		*pile_b = temp->next;
 		temp->next = NULL;
 	}
-	write(1, "rrr\n", 3);
+	write(1, "rrr\n", 4);
 }
 
 /*int main(int argc, char **argv)

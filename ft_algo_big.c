@@ -6,7 +6,7 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:39:10 by vgoret            #+#    #+#             */
-/*   Updated: 2023/02/22 13:44:31 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/02/22 15:18:02 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -259,13 +259,15 @@ int	main(int ac, char **av)
 	// 	temp = temp->next;
 	// }
 	// cheap = find_next_highest(cheap->content, pile_a);
-	// printf("ici : %d\n", cheap->content);
+	// printf("ici : %d\n", cheap->content;
+	// ft_print_piles(pile_a, pile_b);
 	if (ft_pilesize(pile_a) <= 3)
 		algo3(&pile_a);
 	else if (ft_pilesize(pile_a) <= 5)
 		algo5(&pile_a, &pile_b);
 	else if (ft_pilesize(pile_a) > 5)
 		algo_big(&pile_a, &pile_b);
+	free(pile_b);
 	// ft_print_piles(pile_a, pile_b);
 	// //ft_rotate(&pile_a);
 	// ft_print_piles(pile_a, pile_b);

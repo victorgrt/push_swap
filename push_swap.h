@@ -6,7 +6,7 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 16:32:25 by vgoret            #+#    #+#             */
-/*   Updated: 2023/02/20 18:24:48 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/02/22 15:12:09 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ void	ft_rotate_both(p_list **pile_a, p_list **pile_b);
 void	ft_reverse_rotate_both(p_list **pile_a, p_list **pile_b);
 void	ft_push_a(p_list **pile_a, p_list **pile_b);
 void	ft_push_b(p_list **pile_a, p_list **pile_b);
-void	ft_swap(p_list **pile);
+void	ft_swap_a(p_list **pile);
+void	ft_swap_b(p_list **pile);
 void	ft_swap_s(p_list **pile_a, p_list **pile_b);
 
 int		ft_check_args(char **av, int ac);
@@ -45,7 +46,6 @@ int		ft_check_decroissant(p_list *pile);
 int		ft_atol_check(char *str);
 int	ft_find_pivot(p_list *pile);
 
-void	ft_printf_algo3(int nb);
 void	ft_print_pile(p_list *pile_a);
 void	ft_print_piles(p_list *pile_a, p_list *pile_b);
 void	ft_atol_error_print(char *str);
@@ -67,5 +67,7 @@ void	ft_fill_b_high(p_list **pile_a, p_list **pile_b);
 void	ft_fill_b_low(p_list **pile_a, p_list **pile_b);
 int	ft_nexthighest(int ref, p_list *pile_b);
 void	ft_push_next_highest_true(p_list **pile_a, p_list **pile_b);
+
+p_list	*ft_pilereturn_min(p_list *pile);
 
 #endif

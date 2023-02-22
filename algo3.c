@@ -6,40 +6,31 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 17:47:33 by vgoret            #+#    #+#             */
-/*   Updated: 2023/02/20 18:08:38 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/02/22 15:06:43 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_printf_algo3(int nb)
-{
-	int	i;
-
-	i = 0;
-	ft_printf("Instructions (%d) :", nb);
-	while (i < nb)
-	{
-		ft_printf("sa\n");
-		i++;
-	}
-	ft_printf("\n");
-}
-
 void	algo3(p_list **pile)
 {
-	if ((*pile)->content > (*pile)->next->content)
-    {
-		ft_swap(pile);
-		write(1, "sa\n", 3);
+	if ((*pile)->content == ft_pilefind_max(*pile) && (*pile)->next->next->content == ft_pilefind_min(*pile))
+	{
+		ft_rotate_a(pile);
+		ft_swap_a(pile);
 	}
-	if ((*pile)->next->content > (*pile)->next->next->content)
+	else if ((*pile)->content < (*pile)->next->content && (*pile)->next->content > (*pile)->next->next->content && (*pile)->content < (*pile)->next->next->content)
     {
-		ft_swap(&((*pile)->next));
-		write(1, "sa\n", 3);
-        if ((*pile)->content > (*pile)->next->content)
-        	ft_swap(pile);
-	}
+            ft_reverse_rotate_a(pile);
+            ft_swap_a(pile);
+    }
+    else if ((*pile)->content < (*pile)->next->content && (*pile)->next->content > (*pile)->next->next->content && (*pile)->content >(*pile)->next->next->content)
+            ft_reverse_rotate_a(pile);
+    else if ((*pile)->content > (*pile)->next->content && (*pile)->next->content < (*pile)->next->next->content && (*pile)->content < (*pile)->next->next->content)
+            ft_swap_a(pile);
+    else if ((*pile)->content > (*pile)->next->content && (*pile)->next->content < (*pile)->next->next->content && (*pile)->content > (*pile)->next->next->content)
+            ft_rotate_a(pile);
+	
 }
 
 // int main(int ac, char **av)
