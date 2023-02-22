@@ -3,14 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init_pile.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victor <victor@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 12:18:45 by victor            #+#    #+#             */
-/*   Updated: 2023/02/17 12:51:25 by victor           ###   ########.fr       */
+/*   Updated: 2023/02/22 13:09:22 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+// void	ft_init_pile(p_list	**pile)
+// {
+// 	int		pos;
+// 	p_list	*current;
+
+// 	current = *pile;
+// 	pos = 1;
+// 	while (current)
+// 	{
+// 		current->position = pos;
+// 		current->cmd = 0;
+// 		current = current->next;
+// 		pos++;
+// 	}
+// }
 
 void	ft_set_position(p_list **pile)
 {

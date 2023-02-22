@@ -6,62 +6,59 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:39:10 by vgoret            #+#    #+#             */
-/*   Updated: 2023/02/21 16:08:17 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/02/22 13:44:31 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// void	ft_init_pile(p_list	**pile)
-// {
-// 	int		pos;
-// 	p_list	*current;
+p_list    *find_next_highest(int ref, p_list *pile_a)
+{
+    p_list    *current;
+    int    next_highest;
 
-// 	current = *pile;
-// 	pos = 1;
-// 	while (current)
-// 	{
-// 		current->position = pos;
-// 		current->cmd = 0;
-// 		current = current->next;
-// 		pos++;
-// 	}
-// }
+    if (!pile_a)
+        return (0);
+    current = pile_a;
+    next_highest = INT_MAX;
+    while (pile_a)
+    {
+        if (pile_a->content > ref && pile_a->content < next_highest)
+        {
+            next_highest = pile_a->content;
+            current = pile_a;
+        }
+        pile_a = pile_a->next;
+    }
+    return (current);
+}
 
-// void	ft_set_position(p_list **pile)
-// {
-// 	int		i;
-// 	p_list	*current;
-		
-// 	i = 1;
-// 	current = (*pile);
-// 	while (current)
-// 	{
-// 		current->position = i;
-// 		current = current->next;
-// 		i++;
-// 	}
-// }
+p_list *cheapest(p_list *pile_a, p_list *pile_b)
+{
+    p_list *next;
+    int		min_stroke;
+    p_list *temp;
+    p_list *cheapest;
 
-// void	ft_cmd_to_top(p_list *pile)
-// {
-// 	p_list	*temp;
-// 	int		mediane;
-// 	int		size;
-
-// 	size = ft_pilesize(pile);
-// 	ft_set_position(&pile);
-// 	mediane = ((size/2) * (size%2));
-// 	temp = (pile);
-// 	while (temp)
-// 	{
-// 		if (temp->position <= mediane)
-// 			temp->cmd = temp->position - 1;
-// 		else if (temp->position > mediane)
-// 			temp->cmd = size - ((pile)->position) + 1;
-// 		temp = temp->next;
-// 	}
-// }
+    cheapest = pile_b;
+    ft_cmd_to_top(pile_a);
+    ft_cmd_to_top(pile_b);
+    next = find_next_highest(pile_b->content, pile_a);
+    min_stroke = cheapest->cmd + next->cmd;
+    temp = pile_b;
+    while (temp)
+    {
+        next = find_next_highest(temp->content, pile_a);
+        if (((temp->cmd + next->cmd) < min_stroke))
+        {
+            min_stroke = temp->cmd + next->cmd;
+            cheapest = temp;
+        }
+        temp->cmd = temp->cmd + next->cmd;
+        temp = temp->next;
+    }
+    return (cheapest);
+}
 
 //si pile_a->content == ft_nexthighest((pile_b*)->content) on push, sinon on rota, tant qu'on a pas push
 // void	ft_push_next_highest_true(p_list **pile_a, p_list **pile_b)
@@ -205,66 +202,41 @@ int	ft_get_position(int next, p_list *pile_a)
 
 void	algo_big(p_list **pile_a, p_list **pile_b)
 {
-	p_list *temp;
-	// int		position;
+	p_list	*cheap;
+	p_list	*next;
 
-	if (ft_pilesize(*pile_a) == 3)
-		algo_three(pile_a);
-	else if (ft_pilesize(*pile_a) == 5)
-		algo5(pile_a, pile_b);
-	else if (ft_pilesize(*pile_a) > 5)
+	ft_set_position_v2(pile_a);
+	ft_fill_b_low(pile_a, pile_b);
+	ft_fill_b_high(pile_a, pile_b);
+	while (ft_pilesize(*pile_b) != 0)
 	{
-		ft_set_position_v2(pile_a);
-		ft_fill_b_low(pile_a, pile_b);
-		ft_fill_b_high(pile_a, pile_b);
-		printf("pile_a->position %d\n", (*pile_a)->position);
-		ft_cmd_to_top(*pile_b);
-		temp = *pile_b;
-   		while (temp)
+		cheap = cheapest(*pile_a, *pile_b);
+		next = find_next_highest(cheap->content, *pile_a);
+		while ((*pile_a) != next)
 		{
-			printf("Valeur : %d\tPosition : %d\tCmd : %d\n", temp->content, temp->position, temp->cmd);
-			temp = temp->next;
+			if (next->position >= ft_pilesize(*pile_a) / 2)
+				ft_reverse_rotate_a(pile_a);
+			else	
+				ft_rotate_a(pile_a);
 		}
-		// while (ft_pilesize(*pile_b) != 1)
-		// {
-		// 	ft_push_good_position(pile_a, pile_b, (*pile_b)->position);
-		// }
-		// ft_push_a(pile_a, pile_b);
-		// while (ft_check_croissant(*pile_a) == 0)
-			// ft_rotate_a(pile_a);
-		//ft_push_good_position(pile_a, pile_b, (*pile_b)->position);
-		
-
-		// temp = (*pile_b);
-    	// while (temp)
-		// {
-		// 	printf("Valeur : %d\tPosition : %d\tCmd : %d\n", temp->content, temp->position, temp->cmd);
-		// 	temp = temp->next;
-		// }
-	// 	position = 0;
-	// 	while (ft_pilesize(*pile_b) != 0)
-	// 	{
-	// 		position = ft_get_position(ft_nexthighest((*pile_b)->content, *pile_a), *pile_a);
-	// 		//printf("next : %d\n", ft_nexthighest((*pile_b)->content, *pile_a));
-	// 		if ((*pile_a)->content == ft_nexthighest((*pile_b)->content, *pile_a))
-	// 			ft_push_a(pile_a, pile_b);
-	// 		else if (position > ft_pilesize(*pile_a)/2)
-	// 			ft_reverse_rotate_a(pile_a);
-	// 		else if (position <= ft_pilesize(*pile_a)/2)
-	// 			ft_rotate_a(pile_a);
-	// 	}
-	// 	ft_print_piles(*pile_a, *pile_b);
-	// 	while (ft_check_croissant(*pile_a) != 0)
-	// 		ft_rotate_a(pile_a);
+		while ((*pile_b) != cheap)
+		{
+			if (cheap->position >= ft_pilesize(*pile_b) / 2)
+				ft_reverse_rotate_a(pile_b);
+			else	
+				ft_rotate_a(pile_b);
+		}
+		ft_push_a(pile_a, pile_b);
 	}
-}	
+	while (ft_check_croissant(*pile_a) == 1)
+		ft_reverse_rotate_a(pile_a);
+}
 
 int	main(int ac, char **av)
 {
 	int i = 1;
 	p_list *pile_a;
 	p_list	*pile_b;
-	// p_list 	*temp;
 	p_list	*new;
 
 	pile_a = 0;
@@ -280,15 +252,21 @@ int	main(int ac, char **av)
 		ft_pileadd_back(&pile_a, new);
 		i++;
 	}
-	// ft_set_position_v2(&pile_a);
-	// temp = pile_a;
-   	// while (temp)
+	// temp = pile_b;
+	// while (temp)
 	// {
 	// 	printf("Valeur : %d\tPosition : %d\tCmd : %d\n", temp->content, temp->position, temp->cmd);
 	// 	temp = temp->next;
 	// }
-	algo_big(&pile_a, &pile_b);
-	ft_print_piles(pile_a, pile_b);
+	// cheap = find_next_highest(cheap->content, pile_a);
+	// printf("ici : %d\n", cheap->content);
+	if (ft_pilesize(pile_a) <= 3)
+		algo3(&pile_a);
+	else if (ft_pilesize(pile_a) <= 5)
+		algo5(&pile_a, &pile_b);
+	else if (ft_pilesize(pile_a) > 5)
+		algo_big(&pile_a, &pile_b);
+	// ft_print_piles(pile_a, pile_b);
 	// //ft_rotate(&pile_a);
 	// ft_print_piles(pile_a, pile_b);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 18:22:23 by vgoret            #+#    #+#             */
-/*   Updated: 2023/02/20 18:27:27 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/02/22 13:33:05 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,4 @@ void    algo_three(p_list **lst_a)
                         ft_rotate_a(lst_a);
                 }
         }
-        // else if ((*lst_a) == 2)
-        // {
-
-        //         ft_rotate_a(lst_a);
-        //         ft_swap(lst_a);
-        // }
-//      else
-//              printf("\n");
 }
