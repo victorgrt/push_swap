@@ -6,7 +6,7 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 12:43:03 by victor            #+#    #+#             */
-/*   Updated: 2023/02/21 16:36:42 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/02/23 13:04:27 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,6 @@ int	ft_find_low_cost(p_list *pile_a, p_list *pile_b)
 	return (addition);
 }
 
-void	ft_push_low(p_list **pile_a, p_list **pile_b)
-{
-	int	addition;
-
-	addition = 0;
-	ft_cmd_to_top(*pile_a);
-	ft_cmd_to_top(*pile_b);
-	addition = ft_find_low_cost(*pile_a, *pile_b);
-	printf("Addition : %d\n", addition);
-}
-
 void	ft_cmd_to_top(p_list *pile)
 {
 	p_list	*temp;
@@ -60,34 +49,6 @@ void	ft_cmd_to_top(p_list *pile)
 			temp->cmd = temp->cmd + ft_pilesize(pile) - temp->position + 1;
 		temp = temp->next;
 	}
-}
-
-void	ft_push_low_cost(p_list **pile_a, p_list **pile_b)
-{
-	p_list	*temp;
-	p_list	*temp2;
-	int		i;
-	int		ref;
-	int		size;	
-
-	i = 0;
-	size = ft_pilesize(*pile_b);
-	ref = INT_MAX;
-	temp2 = (*pile_b);
-	while (i < size)
-	{
-		if (ref < (temp2)->cmd)
-			ref = (temp2)->cmd;
-		(temp2) = (temp2)->next;
-		i++;
-	}
-	temp = (*pile_b);
-	if (ref == temp->cmd)
-		ft_push_a(pile_a, pile_b);
-	else if (((ft_pilesize(*pile_b) / 2) + ft_pilesize(*pile_b) % 2) < ref)
-		ft_reverse_rotate_b(pile_b);
-	else
-		ft_rotate_b(pile_b);
 }
 
 int	ft_nexthighest(int ref, p_list *pile_a)

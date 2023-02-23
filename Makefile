@@ -6,7 +6,7 @@
 #    By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/13 13:18:09 by vgoret            #+#    #+#              #
-#    Updated: 2023/02/22 14:45:59 by vgoret           ###   ########.fr        #
+#    Updated: 2023/02/22 15:26:35 by vgoret           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ CC		=	gcc
 # * SRC * #
 
 SRC = algo3.c ft_atol.c ft_checker.c parsing.c ft_push.c ft_rotate.c ft_swap.c \
-	algo5.c ft_mediane.c algo_radix.c algo100.c algo500.c ft_print_pile.c ft_pilefind.c \
+	algo5.c ft_mediane.c algo100.c algo500.c ft_print_pile.c ft_pilefind.c \
 	ft_check_order.c ft_init_pile.c ft_cmd.c ft_algo_big.c \
 
 OBJ = ${SRC:.c=.o}

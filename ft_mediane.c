@@ -6,7 +6,7 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 13:41:12 by vgoret            #+#    #+#             */
-/*   Updated: 2023/02/20 16:00:47 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/02/23 13:21:20 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,12 +82,12 @@ void	ft_fill_b_low(p_list **pile_a, p_list **pile_b)
 {
 	int	mediane;
 	int	i;
-	int	size;
+//	int	size;
 
-	size = ft_pilesize(*pile_a);
-	i = -1;
+//	size = ft_pilesize(*pile_a);
+	i = 0;
 	mediane = ft_find_mediane((*pile_a));
-	while (i < size)
+	while (ft_pilesize(*pile_a) != ft_pilesize(*pile_b))
 	{
 		if ((*pile_a)->content < mediane)
 			ft_push_b(pile_a, pile_b);

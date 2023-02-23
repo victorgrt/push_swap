@@ -6,7 +6,7 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:39:10 by vgoret            #+#    #+#             */
-/*   Updated: 2023/02/22 15:18:02 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/02/23 16:03:50 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,9 @@ p_list *cheapest(p_list *pile_a, p_list *pile_b)
         next = find_next_highest(temp->content, pile_a);
         if (((temp->cmd + next->cmd) < min_stroke))
         {
-            min_stroke = temp->cmd + next->cmd;
+            min_stroke = temp->cmd - next->cmd;
             cheapest = temp;
         }
-        temp->cmd = temp->cmd + next->cmd;
         temp = temp->next;
     }
     return (cheapest);
@@ -154,31 +153,6 @@ void	ft_set_position_v2(p_list **pile_a)
 	}
 }
 
-void	ft_push_good_position(p_list **pile_a, p_list **pile_b, int position)
-{
-	if (*pile_b == NULL || (*pile_b)->position >= position)
-	{
-		ft_push_a(pile_a, pile_b);
-		if ((*pile_b)->position != position)
-			ft_rotate_b(pile_a);
-		return ;
-	}
-	p_list *temp = *pile_b;
-	while (temp->next != NULL && temp->next->position < position)
-	{
-		temp = temp->next;
-	}
-	ft_push_b(pile_a, pile_b);
-	if ((*pile_b)->position != position)
-	{
-		if ((*pile_b)->position > temp->position)
-			ft_reverse_rotate_b(pile_b);
-		else
-			ft_rotate_b(pile_b);
-	}
-}
-
-
 int	ft_get_position(int next, p_list *pile_a)
 {
 	int	position;
@@ -214,22 +188,32 @@ void	algo_big(p_list **pile_a, p_list **pile_b)
 		next = find_next_highest(cheap->content, *pile_a);
 		while ((*pile_a) != next)
 		{
-			if (next->position >= ft_pilesize(*pile_a) / 2)
+			if (next->position >= (ft_pilesize(*pile_a) / 2 + ft_pilesize(*pile_a) % 2))
+			{
 				ft_reverse_rotate_a(pile_a);
-			else	
+			}
+			else
+			{	
 				ft_rotate_a(pile_a);
+			}
 		}
 		while ((*pile_b) != cheap)
 		{
-			if (cheap->position >= ft_pilesize(*pile_b) / 2)
-				ft_reverse_rotate_a(pile_b);
-			else	
-				ft_rotate_a(pile_b);
+			if (cheap->position >= (ft_pilesize(*pile_a) / 2 + ft_pilesize(*pile_a) % 2))
+			{
+				ft_reverse_rotate_b(pile_b);
+			}
+			else
+			{	
+				ft_rotate_b(pile_b);
+			}
 		}
 		ft_push_a(pile_a, pile_b);
 	}
 	while (ft_check_croissant(*pile_a) == 1)
+	{
 		ft_reverse_rotate_a(pile_a);
+	}
 }
 
 int	main(int ac, char **av)
@@ -267,8 +251,10 @@ int	main(int ac, char **av)
 		algo5(&pile_a, &pile_b);
 	else if (ft_pilesize(pile_a) > 5)
 		algo_big(&pile_a, &pile_b);
-	free(pile_b);
 	// ft_print_piles(pile_a, pile_b);
+	free(pile_a);
+	free(pile_b);
+	// printf("%d\n", ft_check_croissant(pile_a));
 	// //ft_rotate(&pile_a);
 	// ft_print_piles(pile_a, pile_b);
 	return (0);

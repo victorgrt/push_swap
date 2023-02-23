@@ -6,7 +6,7 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 17:39:14 by vgoret            #+#    #+#             */
-/*   Updated: 2023/02/22 15:19:07 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/02/22 15:53:56 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,20 @@
 
 int	algo5(p_list **pile_a, p_list **pile_b)
 {
+	p_list *min;
+
 	if (ft_check_croissant(*pile_a) == 0)
 		return (0);
 	while (ft_pilesize(*pile_a) != 3)
 	{	
+		ft_set_position(pile_a);
+		min = ft_pilereturn_min(*pile_a);
 		while ((*pile_a)->content != ft_pilefind_min(*pile_a))
 		{
-			ft_rotate_a(pile_a);
+			if (min->position <= ft_pilesize(*pile_a) / 2)
+				ft_rotate_a(pile_a);
+			else
+				ft_reverse_rotate_a(pile_a);
 		}
 		ft_push_b(pile_a, pile_b);
 	}
