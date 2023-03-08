@@ -6,31 +6,15 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 12:18:45 by victor            #+#    #+#             */
-/*   Updated: 2023/02/22 13:09:22 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/02/27 16:45:08 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// void	ft_init_pile(p_list	**pile)
-// {
-// 	int		pos;
-// 	p_list	*current;
-
-// 	current = *pile;
-// 	pos = 1;
-// 	while (current)
-// 	{
-// 		current->position = pos;
-// 		current->cmd = 0;
-// 		current = current->next;
-// 		pos++;
-// 	}
-// }
-
 void	ft_set_position(p_list **pile)
 {
-    int	i;
+	int		i;
 	p_list	*current;
 
 	i = 1;
@@ -51,7 +35,7 @@ void	ft_set_cmd(p_list **pile)
 	while (current)
 	{
 		current->cmd = 1;
-		current = current->next;	
+		current = current->next;
 	}
 }
 
@@ -62,7 +46,6 @@ void	ft_set_cmd(p_list **pile)
 // 	p_list *pile_b;
 // 	p_list	*new;
 // 	p_list	*temp;
- 
 // 	pile_a = 0;
 // 	if (ac < 2)
 // 	{
@@ -89,7 +72,8 @@ void	ft_set_cmd(p_list **pile)
 // 	temp = pile_b;
 // 	while (temp)
 // 	{
-// 		printf("Valeur : %d\tPosition : %d\tCmd : %d\n", temp->content, temp->position, temp->cmd);
+// 		printf("Valeur : %d\tPosition : %d\tCmd : %d\n", 
+//temp->content, temp->position, temp->cmd);
 // 		temp = temp->next;
 // 	}
 // 	return (0);

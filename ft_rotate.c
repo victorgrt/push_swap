@@ -6,7 +6,7 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:38:59 by victor            #+#    #+#             */
-/*   Updated: 2023/02/23 14:41:36 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/02/27 16:46:06 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,58 +78,6 @@ void	ft_reverse_rotate_b(p_list **pile)
 	last->next = *pile;
 	*pile = last;
 	write(1, "rrb\n", 4);
-}
-
-void	ft_rotate_both(p_list **pile_a, p_list **pile_b)
-{
-	p_list		*temp;
-
-	if (*pile_a && (*pile_a)->next)
-	{
-		temp = *pile_a;
-		while (temp->next)
-			temp = temp->next;
-		temp->next = *pile_a;
-		temp = (*pile_a)->next;
-		(*pile_a)->next = NULL;
-		*pile_a = temp;
-	}
-	if (*pile_b && (*pile_b)->next)
-	{
-		temp = *pile_b;
-		while (temp->next)
-			temp = temp->next;
-		temp->next = *pile_b;
-		temp = (*pile_b)->next;
-		(*pile_b)->next = NULL;
-		*pile_b = temp;
-	}
-	write(1, "rr\n", 3);
-}
-
-void	ft_reverse_rotate_both(p_list **pile_a, p_list **pile_b)
-{
-	p_list		*temp;
-
-	if (*pile_a && (*pile_a)->next)
-	{
-		temp = *pile_a;
-		while (temp->next->next)
-			temp = temp->next;
-		temp->next->next = *pile_a;
-		*pile_a = temp->next;
-		temp->next = NULL;
-	}
-	if (*pile_b && (*pile_b)->next)
-	{
-		temp = *pile_b;
-		while (temp->next->next)
-			temp = temp->next;
-		temp->next->next = *pile_b;
-		*pile_b = temp->next;
-		temp->next = NULL;
-	}
-	write(1, "rrr\n", 4);
 }
 
 /*int main(int argc, char **argv)

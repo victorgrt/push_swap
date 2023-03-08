@@ -6,7 +6,7 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 17:30:36 by vgoret            #+#    #+#             */
-/*   Updated: 2023/02/22 15:14:20 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/02/27 16:42:36 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_pilefind_max(p_list *pile)
 
 p_list	*ft_pilereturn_min(p_list *pile)
 {
-	p_list *min;
+	p_list	*min;
 
 	if (pile)
 	{

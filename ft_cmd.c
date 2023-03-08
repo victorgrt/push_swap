@@ -6,7 +6,7 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 12:43:03 by victor            #+#    #+#             */
-/*   Updated: 2023/02/23 13:04:27 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/02/27 16:45:31 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,8 @@ int	ft_nexthighest(int ref, p_list *pile_a)
 		   temp = pile_b;
     while (temp)
 	{
-		printf("Valeur : %d\tPosition : %d\tCmd : %d\n", temp->content, temp->position, temp->cmd);
+		printf("Valeur : %d\tPosition : %d\tCmd : %d\n", temp->content,
+		 temp->position, temp->cmd);
 		temp = temp->next;
 	}
 	// while (ft_pilesize(pile_b) != 0)

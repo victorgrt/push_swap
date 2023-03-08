@@ -6,7 +6,7 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 17:39:14 by vgoret            #+#    #+#             */
-/*   Updated: 2023/02/22 15:53:56 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/02/27 16:42:50 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	algo5(p_list **pile_a, p_list **pile_b)
 {
-	p_list *min;
+	p_list	*min;
 
 	if (ft_check_croissant(*pile_a) == 0)
 		return (0);
