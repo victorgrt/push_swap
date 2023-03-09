@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front_p.c                                :+:      :+:    :+:   */
+/*   ft_position.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/19 15:24:32 by vgoret            #+#    #+#             */
-/*   Updated: 2023/03/09 16:39:30 by vgoret           ###   ########.fr       */
+/*   Created: 2023/03/09 17:20:49 by vgoret            #+#    #+#             */
+/*   Updated: 2023/03/09 17:28:29 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void	ft_lstadd_front_p(t_stack **lst, t_stack *new)
+void	ft_set_pos(t_stack **pile)
 {
-	if (new && lst)
+	t_stack	*temp;
+	int		i;
+
+	i = 1;
+	temp = (*pile);
+	while (temp)
 	{
-		new->next = *lst;
-		*lst = new;
+		temp->position = i;
+		temp = temp->next;
+		i++;
 	}
 }

@@ -6,115 +6,103 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:50:34 by vgoret            #+#    #+#             */
-/*   Updated: 2023/03/09 11:37:55 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/03/09 16:46:20 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_size_comp(p_list *pile)
+int	ft_size_comp(t_stack *pile)
 {
 	return ((ft_pilesize(pile) / 2) + (ft_pilesize(pile) % 2));
 }
 
-void	ft_under(p_list **pile_a, p_list **pile_b, p_list *cheap, p_list *next)
+void	ft_under(t_stack **pa, t_stack **pb, t_stack *cheap, t_stack *next)
 {	
 	while (cheap->position != 1 && next->position != 1)
 	{
-		ft_rotate_both(pile_a, pile_b);
-		ft_set_pos(pile_a);
-		ft_set_pos(pile_b);
+		ft_rotate_both(pa, pb);
+		ft_set_pos(pa);
+		ft_set_pos(pb);
 	}
 	if (cheap->position != 1)
 	{
 		while (cheap->position != 1)
 		{
-			ft_rotate_b(pile_b);
-			ft_set_pos(pile_b);
+			ft_rotate_b(pb);
+			ft_set_pos(pb);
 		}
 	}
 	else if (next->position != 1)
 	{
 		while (next->position != 1)
 		{
-			ft_rotate_a(pile_a);
-			ft_set_pos(pile_a);
+			ft_rotate_a(pa);
+			ft_set_pos(pa);
 		}
 	}
 }
 
-void	ft_upper(p_list **pile_a, p_list **pile_b, p_list *cheap, p_list *next)
+void	ft_upper(t_stack **pa, t_stack **pb, t_stack *cheap, t_stack *next)
 {
 	while (cheap->position != 1 && next->position != 1)
 	{
-		ft_reverse_rotate_both(pile_a, pile_b);
-		ft_set_pos(pile_a);
-		ft_set_pos(pile_b);
+		ft_reverse_rotate_both(pa, pb);
+		ft_set_pos(pa);
+		ft_set_pos(pb);
 	}
 	if (cheap->position != 1)
 	{
 		while (cheap->position != 1)
 		{
-			ft_reverse_rotate_b(pile_b);
-			ft_set_pos(pile_b);
+			ft_reverse_rotate_b(pb);
+			ft_set_pos(pb);
 		}
 	}
 	else if (next->position != 1)
 	{
 		while (next->position != 1)
 		{
-			ft_reverse_rotate_a(pile_a);
-			ft_set_pos(pile_a);
+			ft_reverse_rotate_a(pa);
+			ft_set_pos(pa);
 		}
 	}
 }
 
-void	ft_both(p_list **pile_a, p_list **pile_b, p_list *cheap, p_list *next)
+void	ft_both(t_stack **pa, t_stack **pb, t_stack *cheap, t_stack *next)
 {
 	while (cheap->position != 1)
 	{
-		if (cheap->position <= (ft_size_comp(*pile_b)))
+		if (cheap->position <= (ft_size_comp(*pb)))
 		{
-			ft_rotate_b(pile_b);
-			ft_set_pos(pile_b);
+			ft_rotate_b(pb);
+			ft_set_pos(pb);
 		}
-		else if(cheap->position > (ft_size_comp(*pile_b)))
+		else if (cheap->position > (ft_size_comp(*pb)))
 		{
-			ft_reverse_rotate_b(pile_b);
-			ft_set_pos(pile_b);
-		}
-	}
-	while (next->position != 1)
-	{
-		if (next->position <= (ft_size_comp(*pile_a)))
-		{
-			ft_rotate_a(pile_a);
-			ft_set_pos(pile_a);
-		}
-		else if (next->position > (ft_size_comp(*pile_a)))
-		{
-			ft_reverse_rotate_a(pile_a);
-			ft_set_pos(pile_a);
+			ft_reverse_rotate_b(pb);
+			ft_set_pos(pb);
 		}
 	}
+	ft_both2(pa, next);
 }
 
-void	ft_2ndpart(p_list **pile_a, p_list **pile_b, p_list *cheap, p_list *next)
+void	ft_2ndpart(t_stack **pa, t_stack **pb, t_stack *cheap, t_stack *next)
 {
-	while (ft_pilesize(*pile_b) != 0)
+	while (ft_pilesize(*pb) != 0)
 	{
-		cheap = cheapest(*pile_a, *pile_b);
-		next = find_next_highest(cheap->content, *pile_a);
-		ft_set_pos(pile_a);
-		ft_set_pos(pile_b);
-		if ((cheap->position <= (ft_size_comp(*pile_b))) 
-			&& (next->position <= (ft_size_comp(*pile_a))))
-			ft_under(pile_a, pile_b, cheap, next);
-		else if ((cheap->position > (ft_size_comp(*pile_b))) 
-			&& (next->position > (ft_size_comp(*pile_a))))
-			ft_upper(pile_a, pile_b, cheap, next);
+		cheap = cheapest(*pa, *pb);
+		next = find_next_highest(cheap->content, *pa);
+		ft_set_pos(pa);
+		ft_set_pos(pb);
+		if ((cheap->position <= (ft_size_comp(*pb)))
+			&& (next->position <= (ft_size_comp(*pa))))
+			ft_under(pa, pb, cheap, next);
+		else if ((cheap->position > (ft_size_comp(*pb)))
+			&& (next->position > (ft_size_comp(*pa))))
+			ft_upper(pa, pb, cheap, next);
 		else
-			ft_both(pile_a, pile_b, cheap, next);
-		ft_push_a(pile_a, pile_b);
+			ft_both(pa, pb, cheap, next);
+		ft_push_a(pa, pb);
 	}
 }

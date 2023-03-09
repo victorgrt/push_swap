@@ -6,13 +6,13 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 17:47:33 by vgoret            #+#    #+#             */
-/*   Updated: 2023/03/09 14:02:42 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/03/09 16:39:30 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	algo3(p_list **pile)
+void	algo3(t_stack **pile)
 {
 	if ((*pile)->content == ft_pilefind_max(*pile)
 		&& (*pile)->next->next->content == ft_pilefind_min(*pile))
@@ -46,9 +46,9 @@ void	algo3(p_list **pile)
 // 	int i = 1;
 // 	int j = 0;
 // 	int compteur = 0;
-// 	p_list	*pile_a;
-// 	p_list	*pile_b;
-// 	p_list	*new;
+// 	t_stack	*pile_a;
+// 	t_stack	*pile_b;
+// 	t_stack	*new;
 
 // 	if (ac < 2)
 // 	{

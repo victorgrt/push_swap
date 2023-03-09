@@ -6,16 +6,16 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 12:18:45 by victor            #+#    #+#             */
-/*   Updated: 2023/02/27 16:45:08 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/03/09 16:39:30 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_set_position(p_list **pile)
+void	ft_set_position(t_stack **pile)
 {
 	int		i;
-	p_list	*current;
+	t_stack	*current;
 
 	i = 1;
 	current = *pile;
@@ -27,9 +27,9 @@ void	ft_set_position(p_list **pile)
 	}
 }
 
-void	ft_set_cmd(p_list **pile)
+void	ft_set_cmd(t_stack **pile)
 {
-	p_list	*current;
+	t_stack	*current;
 
 	current = *pile;
 	while (current)
@@ -42,10 +42,10 @@ void	ft_set_cmd(p_list **pile)
 // int	main(int ac, char **av)
 // {
 // 	int i = 1;
-// 	p_list *pile_a;
-// 	p_list *pile_b;
-// 	p_list	*new;
-// 	p_list	*temp;
+// 	t_stack *pile_a;
+// 	t_stack *pile_b;
+// 	t_stack	*new;
+// 	t_stack	*temp;
 // 	pile_a = 0;
 // 	if (ac < 2)
 // 	{

@@ -6,15 +6,15 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:45:54 by vgoret            #+#    #+#             */
-/*   Updated: 2023/02/27 16:47:01 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/03/09 16:39:30 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_rotate_both(p_list **pile_a, p_list **pile_b)
+void	ft_rotate_both(t_stack **pile_a, t_stack **pile_b)
 {
-	p_list		*temp;
+	t_stack		*temp;
 
 	if (*pile_a && (*pile_a)->next)
 	{
@@ -39,9 +39,9 @@ void	ft_rotate_both(p_list **pile_a, p_list **pile_b)
 	write(1, "rr\n", 3);
 }
 
-void	ft_reverse_rotate_both(p_list **pile_a, p_list **pile_b)
+void	ft_reverse_rotate_both(t_stack **pile_a, t_stack **pile_b)
 {
-	p_list		*temp;
+	t_stack		*temp;
 
 	if (*pile_a && (*pile_a)->next)
 	{

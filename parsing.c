@@ -6,7 +6,7 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 15:58:10 by vgoret            #+#    #+#             */
-/*   Updated: 2023/02/08 15:14:47 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/03/09 16:39:30 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 // int	main(int ac, char **av)
 // {
 // 	int		i;
-// 	p_list	*pile_a;
-// 	p_list	*pile_b;
-// 	p_list	*new;	
+// 	t_stack	*pile_a;
+// 	t_stack	*pile_b;
+// 	t_stack	*new;	
 
 // 	i = 1;
 // 	pile_a = 0;
@@ -61,9 +61,9 @@
 {
 	int i = 1;
 	int j;
-	p_list	*pile_a;
-	//p_list	*pile_b;
-	p_list	*new;
+	t_stack	*pile_a;
+	//t_stack	*pile_b;
+	t_stack	*new;
 
 	if (ft_check_args(av, ac) == 1)
 	{

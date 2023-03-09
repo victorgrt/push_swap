@@ -6,16 +6,16 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 15:38:59 by victor            #+#    #+#             */
-/*   Updated: 2023/02/27 16:46:06 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/03/09 16:39:30 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_rotate_a(p_list **pile)
+void	ft_rotate_a(t_stack **pile)
 {
-	p_list	*temp;
-	p_list	*first;
+	t_stack	*temp;
+	t_stack	*first;
 
 	if (!pile || !*pile || !(*pile)->next)
 		return ;
@@ -29,10 +29,10 @@ void	ft_rotate_a(p_list **pile)
 	write(1, "ra\n", 3);
 }
 
-void	ft_rotate_b(p_list **pile)
+void	ft_rotate_b(t_stack **pile)
 {
-	p_list	*temp;
-	p_list	*first;
+	t_stack	*temp;
+	t_stack	*first;
 
 	if (!pile || !*pile || !(*pile)->next)
 		return ;
@@ -46,10 +46,10 @@ void	ft_rotate_b(p_list **pile)
 	write(1, "rb\n", 3);
 }
 
-void	ft_reverse_rotate_a(p_list **pile)
+void	ft_reverse_rotate_a(t_stack **pile)
 {
-	p_list	*temp;
-	p_list	*last;
+	t_stack	*temp;
+	t_stack	*last;
 
 	if (!pile || !*pile || !(*pile)->next)
 		return ;
@@ -63,10 +63,10 @@ void	ft_reverse_rotate_a(p_list **pile)
 	write(1, "rra\n", 4);
 }
 
-void	ft_reverse_rotate_b(p_list **pile)
+void	ft_reverse_rotate_b(t_stack **pile)
 {
-	p_list	*temp;
-	p_list	*last;
+	t_stack	*temp;
+	t_stack	*last;
 
 	if (!pile || !*pile || !(*pile)->next)
 		return ;
@@ -82,9 +82,9 @@ void	ft_reverse_rotate_b(p_list **pile)
 
 /*int main(int argc, char **argv)
 {
-    p_list *pile_a = NULL;
-    p_list *pile_b = NULL;
-    p_list *temp = NULL;
+    t_stack *pile_a = NULL;
+    t_stack *pile_b = NULL;
+    t_stack *temp = NULL;
     int i;
 
     if (argc != 7)
@@ -94,7 +94,7 @@ void	ft_reverse_rotate_b(p_list **pile)
     }
     for (i = 1; i <= 3; i++)
     {
-        temp = (p_list *)malloc(sizeof(p_list));
+        temp = (t_stack *)malloc(sizeof(t_stack));
         temp->content = atoi(argv[i]);
         temp->next = pile_a;
         pile_a = temp;
@@ -102,7 +102,7 @@ void	ft_reverse_rotate_b(p_list **pile)
 
     for (i = 4; i <= 6; i++)
     {
-        temp = (p_list *)malloc(sizeof(p_list));
+        temp = (t_stack *)malloc(sizeof(t_stack));
         temp->content = atoi(argv[i]);
         temp->next = pile_b;
         pile_b = temp;

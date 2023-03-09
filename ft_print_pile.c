@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_pile.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victor <victor@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 14:37:23 by vgoret            #+#    #+#             */
-/*   Updated: 2023/02/17 12:37:00 by victor           ###   ########.fr       */
+/*   Updated: 2023/03/09 16:39:30 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_print_pile(p_list *pile)
+void	ft_print_pile(t_stack *pile)
 {	
 	ft_printf("\nPile:\n");
 	while (pile)
@@ -23,7 +23,7 @@ void	ft_print_pile(p_list *pile)
 	ft_printf("\n");
 }
 
-void	ft_print_piles(p_list *pile_a, p_list *pile_b)
+void	ft_print_piles(t_stack *pile_a, t_stack *pile_b)
 {	
 	ft_print_pile(pile_a);
 	ft_print_pile(pile_b);
@@ -32,9 +32,9 @@ void	ft_print_piles(p_list *pile_a, p_list *pile_b)
 /*int main(int ac, char **av)
 {
 	int	i = 1;
-	p_list *pile_a;
-	p_list *pile_b;
-	p_list	*new;
+	t_stack *pile_a;
+	t_stack *pile_b;
+	t_stack	*new;
 	
 	pile_a = 0;
 	if (ac == 1)

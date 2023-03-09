@@ -6,7 +6,7 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 12:43:03 by victor            #+#    #+#             */
-/*   Updated: 2023/03/08 15:54:51 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/03/09 16:39:30 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 compter le nombres de coups pour faire remonter en haut de B ft_cmd_to_top();
 */
 
-int	ft_find_low_cost(p_list *pile_a, p_list *pile_b)
+int	ft_find_low_cost(t_stack *pile_a, t_stack *pile_b)
 {
 	int		addition;
-	p_list	*temp;
+	t_stack	*temp;
 
 	temp = pile_a;
 	addition = INT_MAX;
@@ -32,9 +32,9 @@ int	ft_find_low_cost(p_list *pile_a, p_list *pile_b)
 	return (addition);
 }
 
-void	ft_cmd_to_top(p_list *pile)
+void	ft_cmd_to_top(t_stack *pile)
 {
-	p_list	*temp;
+	t_stack	*temp;
 	int		pos_med;
 
 	pos_med = ft_size_comp(pile);
@@ -51,9 +51,9 @@ void	ft_cmd_to_top(p_list *pile)
 	}
 }
 
-int	ft_nexthighest(int ref, p_list *pile_a)
+int	ft_nexthighest(int ref, t_stack *pile_a)
 {
-	p_list	*current;
+	t_stack	*current;
 	int		next_highest;
 
 	if (!pile_a)
@@ -74,10 +74,10 @@ int	ft_nexthighest(int ref, p_list *pile_a)
 /*int	main(int ac, char **av)
 {
 	int i = 1;
-	p_list *pile_a;
-	p_list *pile_b;
-	p_list	*new;
-	p_list	*temp;
+	t_stack *pile_a;
+	t_stack *pile_b;
+	t_stack	*new;
+	t_stack	*temp;
  
 	pile_a = 0;
 	if (ac < 2)

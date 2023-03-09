@@ -6,15 +6,15 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 16:26:28 by vgoret            #+#    #+#             */
-/*   Updated: 2023/01/19 16:27:19 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/03/09 16:39:30 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_back_p(p_list **lst, p_list *new)
+void	ft_lstadd_back_p(t_stack **lst, t_stack *new)
 {
-	p_list	*boeuf;
+	t_stack	*boeuf;
 
 	if (*lst)
 	{

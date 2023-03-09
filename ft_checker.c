@@ -6,7 +6,7 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 16:12:25 by vgoret            #+#    #+#             */
-/*   Updated: 2023/01/30 14:41:28 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/03/09 17:39:38 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,13 @@ int	ft_master_checker(char **av, int ac)
 	i = 1;
 	while (i < ac)
 	{
+		if (av[i] == NULL)
+			return (1);
 		atol = ft_atol(av[i]);
 		if (atol < -2147483648 || atol > 2147483647)
 			return (1);
 		if (ft_check_args(av, ac) == 1)
-			return (2);
+			return (1);
 		i++;
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 14:03:43 by vgoret            #+#    #+#             */
-/*   Updated: 2023/03/09 12:17:19 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/03/09 16:39:30 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ typedef struct i_list
 	int				cmd;
 	int				content;
 	struct i_list	*next;
-}				p_list;
+}				t_stack;
 
-p_list	*ft_pilenew(int content);
-int		ft_pilesize(p_list *pile);
-void	ft_pileadd_front(p_list **pile, p_list *new);
-void	ft_pileadd_back(p_list **pile, p_list *new);
-void	ft_free_list(p_list *list);
-p_list	*ft_pilelast(p_list *pile);
+t_stack	*ft_pilenew(int content);
+int		ft_pilesize(t_stack *pile);
+void	ft_pileadd_front(t_stack **pile, t_stack *new);
+void	ft_pileadd_back(t_stack **pile, t_stack *new);
+void	ft_free_list(t_stack *list);
+t_stack	*ft_pilelast(t_stack *pile);
 
 t_list	*ft_lstnew(void *content);
 t_list	*ft_lstlast(t_list *lst);

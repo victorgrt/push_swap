@@ -6,7 +6,7 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 14:36:12 by vgoret            #+#    #+#             */
-/*   Updated: 2023/02/22 14:45:00 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/03/09 16:39:30 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 /*Intervertit les 2 premiers éléments au sommet de la pile a.
 Ne fait rien s’il n’y en a qu’un ou aucun.*/
-void	ft_swap_a(p_list **pile)
+void	ft_swap_a(t_stack **pile)
 {
-	p_list	*temp;
+	t_stack	*temp;
 
 	if (!pile || !*pile || !(*pile)->next)
 		return ;
@@ -27,9 +27,9 @@ void	ft_swap_a(p_list **pile)
 	write(1, "sa\n", 3);
 }
 
-void	ft_swap_b(p_list **pile)
+void	ft_swap_b(t_stack **pile)
 {
-	p_list	*temp;
+	t_stack	*temp;
 
 	if (!pile || !*pile || !(*pile)->next)
 		return ;
@@ -40,7 +40,7 @@ void	ft_swap_b(p_list **pile)
 	write(1, "sb\n", 3);
 }
 
-void	ft_swap_s(p_list **pile_a, p_list **pile_b)
+void	ft_swap_s(t_stack **pile_a, t_stack **pile_b)
 {
 	ft_swap_a(pile_a);
 	ft_swap_b(pile_b);
@@ -48,9 +48,9 @@ void	ft_swap_s(p_list **pile_a, p_list **pile_b)
 
 // int main(int argc, char **argv)
 // {
-//     p_list *pile_a = NULL;
-//     p_list *pile_b = NULL;
-//     p_list *temp = NULL;
+//     t_stack *pile_a = NULL;
+//     t_stack *pile_b = NULL;
+//     t_stack *temp = NULL;
 //     int i;
 
 //     if (argc != 7)
@@ -60,7 +60,7 @@ void	ft_swap_s(p_list **pile_a, p_list **pile_b)
 //     }
 //     for (i = 1; i <= 3; i++)
 //     {
-//         temp = (p_list *)malloc(sizeof(p_list));
+//         temp = (t_stack *)malloc(sizeof(t_stack));
 //         temp->content = atoi(argv[i]);
 //         temp->next = pile_a;
 //         pile_a = temp;
@@ -68,7 +68,7 @@ void	ft_swap_s(p_list **pile_a, p_list **pile_b)
 
 //     for (i = 3; i < 6; i++)
 //     {
-//         temp = (p_list *)malloc(sizeof(p_list));
+//         temp = (t_stack *)malloc(sizeof(t_stack));
 //         temp->content = atoi(argv[i]);
 //         temp->next = pile_b;
 //         pile_b = temp;

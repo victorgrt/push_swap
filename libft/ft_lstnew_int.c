@@ -6,17 +6,17 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 14:58:44 by vgoret            #+#    #+#             */
-/*   Updated: 2023/02/21 16:28:30 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/03/09 16:39:30 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-p_list	*ft_lstnew_int(long content)
+t_stack	*ft_lstnew_int(long content)
 {
-	p_list	*new;
+	t_stack	*new;
 
-	new = malloc(sizeof(p_list));
+	new = malloc(sizeof(t_stack));
 	if (!new)
 		return (NULL);
 	new->content = content;

@@ -6,21 +6,11 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 16:20:22 by vgoret            #+#    #+#             */
-/*   Updated: 2023/01/30 16:11:32 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/03/09 17:51:47 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	ft_atol_error_print(char *str)
-{
-	if (ft_atol_check(str) == 1)
-		ft_printf("Pas de string a convertir en int");
-	else if (ft_atol_check(str) == 2)
-		ft_printf("L'argument n'est pas un int");
-	else if (ft_atol_check(str) == 3)
-		ft_printf("Nombre trop petit ou trop grand");
-}
 
 int	ft_atol_check(char *str)
 {
@@ -77,8 +67,8 @@ long	ft_atol(char *str)
 /*int	main(int ac, char **av)
 {
 	int i = 1;
-	p_list	*pile_a;
-	p_list	*new;
+	t_stack	*pile_a;
+	t_stack	*new;
 
 	pile_a = 0;
 	if (ac < 2)

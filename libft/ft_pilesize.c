@@ -6,13 +6,13 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 15:16:57 by vgoret            #+#    #+#             */
-/*   Updated: 2023/01/25 14:52:05 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/03/09 16:39:30 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_pilesize(p_list *lst)
+int	ft_pilesize(t_stack *lst)
 {
 	int	i;
 

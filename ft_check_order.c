@@ -6,13 +6,13 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 17:10:54 by vgoret            #+#    #+#             */
-/*   Updated: 2023/02/22 15:03:38 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/03/09 16:39:30 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_check_croissant(p_list *pile)
+int	ft_check_croissant(t_stack *pile)
 {
 	while (pile->next)
 	{		
@@ -25,7 +25,7 @@ int	ft_check_croissant(p_list *pile)
 	return (0);
 }
 
-int	ft_check_decroissant(p_list *pile)
+int	ft_check_decroissant(t_stack *pile)
 {
 	while (pile->next)
 	{		
@@ -39,8 +39,8 @@ int	ft_check_decroissant(p_list *pile)
 /*int	main(int ac, char **av)
 {
 	int	i = 1;
-	p_list	*pile;
-	p_list	*new;
+	t_stack	*pile;
+	t_stack	*new;
 
 	if (ac < 2)
 	{

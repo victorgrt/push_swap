@@ -6,13 +6,13 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 17:30:36 by vgoret            #+#    #+#             */
-/*   Updated: 2023/02/27 16:42:36 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/03/09 16:39:30 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_pilefind_max(p_list *pile)
+int	ft_pilefind_max(t_stack *pile)
 {
 	int	max;
 
@@ -29,9 +29,9 @@ int	ft_pilefind_max(p_list *pile)
 	return (max);
 }
 
-p_list	*ft_pilereturn_min(p_list *pile)
+t_stack	*ft_pilereturn_min(t_stack *pile)
 {
-	p_list	*min;
+	t_stack	*min;
 
 	if (pile)
 	{
@@ -47,7 +47,7 @@ p_list	*ft_pilereturn_min(p_list *pile)
 	return (min);
 }
 
-int	ft_pilefind_min(p_list *pile)
+int	ft_pilefind_min(t_stack *pile)
 {
 	int	min;
 
@@ -69,8 +69,8 @@ int	ft_pilefind_min(p_list *pile)
 {
 	int i = 1;
 	int min;
-	p_list	*pile_a;
-	p_list	*new;
+	t_stack	*pile_a;
+	t_stack	*new;
 
 	if (ac < 2)
 	{
@@ -93,8 +93,8 @@ int	ft_pilefind_min(p_list *pile)
 {
 	int	i = 1;
 	int max;
-	p_list	*new;
-	p_list	*pile_a;
+	t_stack	*new;
+	t_stack	*pile_a;
 
 	pile_a = 0;
 	if (ac < 2)

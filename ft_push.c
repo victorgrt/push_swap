@@ -6,15 +6,15 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 13:58:39 by victor            #+#    #+#             */
-/*   Updated: 2023/02/13 14:10:10 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/03/09 16:39:30 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_push_a(p_list **pile_a, p_list **pile_b)
+void	ft_push_a(t_stack **pile_a, t_stack **pile_b)
 {
-	p_list		*temp;
+	t_stack		*temp;
 
 	if (!pile_b || !*pile_b)
 		return ;
@@ -24,9 +24,9 @@ void	ft_push_a(p_list **pile_a, p_list **pile_b)
 	write(1, "pa\n", 3);
 }
 
-void	ft_push_b(p_list **pile_a, p_list **pile_b)
+void	ft_push_b(t_stack **pile_a, t_stack **pile_b)
 {
-	p_list	*temp;
+	t_stack	*temp;
 
 	if (!pile_a || !*pile_a)
 		return ;
@@ -38,9 +38,9 @@ void	ft_push_b(p_list **pile_a, p_list **pile_b)
 
 // int main(int argc, char **argv)
 // {
-//     p_list *pile_a = NULL;
-//     p_list *pile_b = NULL;
-//     p_list *temp = NULL;
+//     t_stack *pile_a = NULL;
+//     t_stack *pile_b = NULL;
+//     t_stack *temp = NULL;
 //     int i;
 
 //     if (argc != 7)
@@ -50,7 +50,7 @@ void	ft_push_b(p_list **pile_a, p_list **pile_b)
 //     }
 //     for (i = 1; i <= 3; i++)
 //     {
-//         temp = (p_list *)malloc(sizeof(p_list));
+//         temp = (t_stack *)malloc(sizeof(t_stack));
 //         temp->content = atoi(argv[i]);
 //         temp->next = pile_a;
 //         pile_a = temp;
@@ -58,7 +58,7 @@ void	ft_push_b(p_list **pile_a, p_list **pile_b)
 
 //     for (i = 3; i < 6; i++)
 //     {
-//         temp = (p_list *)malloc(sizeof(p_list));
+//         temp = (t_stack *)malloc(sizeof(t_stack));
 //         temp->content = atoi(argv[i]);
 //         temp->next = pile_b;
 //         pile_b = temp;

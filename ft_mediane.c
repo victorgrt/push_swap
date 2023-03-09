@@ -6,28 +6,18 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 13:41:12 by vgoret            #+#    #+#             */
-/*   Updated: 2023/03/09 14:05:19 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/03/09 17:20:04 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_swap_int(int *tab, int indice)
-{
-	int	temp;
-
-	temp = tab[indice];
-	tab[indice] = tab[indice + 1];
-	tab[indice + 1] = temp;
-}
-
-int	ft_find_mediane(p_list *pile)
+int	ft_find_mediane(t_stack *pile)
 {
 	int			*tab;
 	int			i;
-	int			j;
 	int			mediane;
-	p_list		*temp;
+	t_stack		*temp;
 
 	temp = pile;
 	i = 0;
@@ -40,28 +30,16 @@ int	ft_find_mediane(p_list *pile)
 		temp = temp->next;
 		i++;
 	}
-	temp = pile;
-	i = 0;
-	while (i < ft_pilesize(temp) - 1)
-	{
-		j = i + 1;
-		while (j < ft_pilesize(temp))
-		{
-			if (tab[i] > tab[j])
-				ft_swap_int(tab, i);
-			j++;
-		}
-		i++;
-	}
+	tab = ft_action(pile, temp, tab);
 	if (ft_pilesize(temp) % 2 == 0)
 		mediane = tab[ft_size_comp(temp) + 1];
-    else
+	else
 		mediane = tab[ft_size_comp(temp)];
 	free(tab);
 	return (mediane);
 }
 
-void	ft_fill_b_high(p_list **pile_a, p_list **pile_b)
+void	ft_fill_b_high(t_stack **pile_a, t_stack **pile_b)
 {
 	int	max;
 
@@ -75,7 +53,7 @@ void	ft_fill_b_high(p_list **pile_a, p_list **pile_b)
 	}
 }
 
-void	ft_fill_b_low(p_list **pile_a, p_list **pile_b)
+void	ft_fill_b_low(t_stack **pile_a, t_stack **pile_b)
 {
 	int	mediane;
 	int	i;
@@ -92,12 +70,11 @@ void	ft_fill_b_low(p_list **pile_a, p_list **pile_b)
 	}
 }
 
-/*int	main(int ac, char **av)
-{
+/*int	main(int ac, char **av){
 	int i = 1;	
-	p_list *pile_a;
-	p_list	*pile_b;
-	p_list	*new;
+	t_stack *pile_a;
+	t_stack	*pile_b;
+	t_stack	*new;
 
 	pile_a = 0;
 	pile_b = 0;
@@ -112,7 +89,6 @@ void	ft_fill_b_low(p_list **pile_a, p_list **pile_b)
 		ft_pileadd_back(&pile_a, new);
 		i++;
 	}
-	printf("Max : %d\nMediane : %d\n", ft_pilefind_max(pile_a), ft_find_mediane(pile_a));
 	ft_print_piles(pile_a, pile_b);
 	algo5000(&pile_a, &pile_b);
 	ft_print_piles(pile_a, pile_b);

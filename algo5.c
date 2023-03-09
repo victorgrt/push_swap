@@ -6,15 +6,15 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 17:39:14 by vgoret            #+#    #+#             */
-/*   Updated: 2023/03/08 15:48:36 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/03/09 16:39:30 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	algo5(p_list **pile_a, p_list **pile_b)
+int	algo5(t_stack **pile_a, t_stack **pile_b)
 {
-	p_list	*min;
+	t_stack	*min;
 
 	if (ft_check_croissant(*pile_a) == 0)
 		return (0);
@@ -40,9 +40,9 @@ int	algo5(p_list **pile_a, p_list **pile_b)
 /*int	main(int ac, char **av)
 {
 	int i = 1;
-	p_list *pile_a;
-	p_list *pile_b;
-	p_list	*new;
+	t_stack *pile_a;
+	t_stack *pile_b;
+	t_stack	*new;
 
 	pile_a = 0;
 	if (ac < 2)
