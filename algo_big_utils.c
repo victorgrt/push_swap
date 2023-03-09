@@ -6,7 +6,7 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 14:50:34 by vgoret            #+#    #+#             */
-/*   Updated: 2023/03/08 15:20:22 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/03/09 11:37:55 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int	ft_size_comp(p_list *pile)
 
 void	ft_under(p_list **pile_a, p_list **pile_b, p_list *cheap, p_list *next)
 {	
-	
 	while (cheap->position != 1 && next->position != 1)
 	{
 		ft_rotate_both(pile_a, pile_b);
@@ -118,46 +117,4 @@ void	ft_2ndpart(p_list **pile_a, p_list **pile_b, p_list *cheap, p_list *next)
 			ft_both(pile_a, pile_b, cheap, next);
 		ft_push_a(pile_a, pile_b);
 	}
-}
-
-void	ft_put_cheap_top(p_list **pile_b, p_list *cheap)
-{
-	while ((*pile_b) != cheap)
-	{
-		if (cheap->position <= (ft_size_comp(*pile_b)))
-		{
-			ft_rotate_b(pile_b);
-		}
-		else 
-			ft_reverse_rotate_b(pile_b);
-	}
-}
-
-void	ft_put_next_top(p_list **pile_a, p_list *next)
-{
-	while ((*pile_a) != next)
-	{
-		if (next->position <= (ft_size_comp(*pile_a)))
-		{
-			ft_rotate_b(pile_a);
-		}
-		else 
-			ft_reverse_rotate_b(pile_a);
-	}
-}
-
-
-void	ft_faire_remonter(p_list **pile_a, p_list **pile_b, p_list *cheap, p_list *next)
-{
-	//on fait remonter les deux si ils sont dans la meme zone
-	if ((*pile_a) != next && (*pile_b) != cheap)
-	{
-		while ((next->position <= ft_size_comp(*pile_a)) && (cheap->position) <= ft_size_comp(*pile_b))
-		{
-			ft_rotate_both(pile_a, pile_b);
-		}
-		while ((next->position > ft_size_comp(*pile_a)) && (cheap->position) > ft_size_comp(*pile_b))
-			ft_reverse_rotate_both(pile_a, pile_b);
-	}
-	//si c'est toujours pas bon
 }

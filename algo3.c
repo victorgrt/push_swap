@@ -6,7 +6,7 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 17:47:33 by vgoret            #+#    #+#             */
-/*   Updated: 2023/02/27 16:51:37 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/03/09 14:02:42 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,31 @@
 
 void	algo3(p_list **pile)
 {
-        if ((*pile)->content == ft_pilefind_max(*pile)
-                && (*pile)->next->next->content == ft_pilefind_min(*pile))
+	if ((*pile)->content == ft_pilefind_max(*pile)
+		&& (*pile)->next->next->content == ft_pilefind_min(*pile))
 	{
 		ft_rotate_a(pile);
 		ft_swap_a(pile);
 	}
-	else if ((*pile)->content < (*pile)->next->content
-                && (*pile)->next->content > (*pile)->next->next->content
-                && (*pile)->content < (*pile)->next->next->content)
-        {
-                ft_reverse_rotate_a(pile);
-                ft_swap_a(pile);
-        }
-        else if ((*pile)->content < (*pile)->next->content
-        && (*pile)->next->content > (*pile)->next->next->content
-        && (*pile)->content >(*pile)->next->next->content)
-                ft_reverse_rotate_a(pile);
-        else if ((*pile)->content > (*pile)->next->content
-        && (*pile)->next->content < (*pile)->next->next->content
-        && (*pile)->content < (*pile)->next->next->content)
-                ft_swap_a(pile);
-        else if ((*pile)->content > (*pile)->next->content
-        && (*pile)->next->content < (*pile)->next->next->content
-        && (*pile)->content > (*pile)->next->next->content)
-                ft_rotate_a(pile);
+	else if (((*pile)->content < (*pile)->next->content)
+		&& ((*pile)->next->content > (*pile)->next->next->content)
+		&& ((*pile)->content < (*pile)->next->next->content))
+	{
+		ft_reverse_rotate_a(pile);
+		ft_swap_a(pile);
+	}
+	else if (((*pile)->content < (*pile)->next->content)
+		&& ((*pile)->next->content > (*pile)->next->next->content)
+		&& ((*pile)->content > (*pile)->next->next->content))
+		ft_reverse_rotate_a(pile);
+	else if (((*pile)->content > (*pile)->next->content)
+		&& ((*pile)->next->content < (*pile)->next->next->content)
+		&& ((*pile)->content < (*pile)->next->next->content))
+		ft_swap_a(pile);
+	else if (((*pile)->content > (*pile)->next->content)
+		&& ((*pile)->next->content < (*pile)->next->next->content)
+		&& ((*pile)->content > (*pile)->next->next->content))
+		ft_rotate_a(pile);
 }
 
 // int main(int ac, char **av)

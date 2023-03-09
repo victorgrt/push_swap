@@ -1,32 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pilenew.c                                       :+:      :+:    :+:   */
+/*   checker2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/30 16:12:50 by vgoret            #+#    #+#             */
-/*   Updated: 2023/03/09 13:55:53 by vgoret           ###   ########.fr       */
+/*   Created: 2023/03/09 13:14:33 by vgoret            #+#    #+#             */
+/*   Updated: 2023/03/09 14:03:13 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-p_list	*ft_pilenew(int content)
-{
-	p_list	*new;
-
-	new = malloc(sizeof(p_list));
-	if (!new)
-		return (NULL);
-	new->content = content;
-	new->next = NULL;
-	return (new);
-}
-
-/*int	main(void)
-{
-	char	tab[] = "BABINKS";
-	printf("%s\n", (char *)(ft_lstnew(tab)->content));
-	return (0);
-}*/
+/*
+Verifier les arguments -> erreur si probleme, sinon on essaye les instructions
+Recup tous le fichier et executer les instructions 
+-> verifier si c'est bien trie -> ok ou ko
+*/

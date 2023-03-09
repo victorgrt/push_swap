@@ -1,32 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pilenew.c                                       :+:      :+:    :+:   */
+/*   ft_free_list.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/30 16:12:50 by vgoret            #+#    #+#             */
-/*   Updated: 2023/03/09 13:55:53 by vgoret           ###   ########.fr       */
+/*   Created: 2023/03/09 12:16:41 by vgoret            #+#    #+#             */
+/*   Updated: 2023/03/09 13:55:27 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-p_list	*ft_pilenew(int content)
+void	ft_free_list(p_list *list)
 {
-	p_list	*new;
-
-	new = malloc(sizeof(p_list));
-	if (!new)
-		return (NULL);
-	new->content = content;
-	new->next = NULL;
-	return (new);
+	if (!list)
+		return ;
+	ft_free_list(list->next);
+	free(list);
 }
-
-/*int	main(void)
-{
-	char	tab[] = "BABINKS";
-	printf("%s\n", (char *)(ft_lstnew(tab)->content));
-	return (0);
-}*/

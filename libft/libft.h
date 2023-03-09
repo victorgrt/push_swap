@@ -6,7 +6,7 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 14:03:43 by vgoret            #+#    #+#             */
-/*   Updated: 2023/03/08 15:01:19 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/03/09 12:17:19 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ p_list	*ft_pilenew(int content);
 int		ft_pilesize(p_list *pile);
 void	ft_pileadd_front(p_list **pile, p_list *new);
 void	ft_pileadd_back(p_list **pile, p_list *new);
+void	ft_free_list(p_list *list);
 p_list	*ft_pilelast(p_list *pile);
 
 t_list	*ft_lstnew(void *content);

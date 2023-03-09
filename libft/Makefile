@@ -6,7 +6,7 @@
 #    By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/14 13:54:05 by vgoret            #+#    #+#              #
-#    Updated: 2023/02/15 15:54:56 by vgoret           ###   ########.fr        #
+#    Updated: 2023/03/09 12:17:01 by vgoret           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRC = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft
 	ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstlast_bonus.c \
 	ft_lstadd_back_bonus.c ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c \
 	ft_lstmap_bonus.c ft_pilenew.c ft_pilesize.c ft_pileadd_front.c ft_pileadd_back.c \
-	ft_pilelast.c \
+	ft_pilelast.c ft_free_list.c\
 
 PROG = libft.a
 

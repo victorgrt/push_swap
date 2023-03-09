@@ -6,7 +6,7 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 12:43:03 by victor            #+#    #+#             */
-/*   Updated: 2023/02/27 16:45:31 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/03/08 15:54:51 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	ft_cmd_to_top(p_list *pile)
 	p_list	*temp;
 	int		pos_med;
 
-	pos_med = ((ft_pilesize(pile) / 2) + ft_pilesize(pile) % 2);
+	pos_med = ft_size_comp(pile);
 	temp = pile;
 	ft_set_position(&pile);
 	ft_set_cmd(&pile);

@@ -6,7 +6,7 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:39:10 by vgoret            #+#    #+#             */
-/*   Updated: 2023/03/08 15:21:57 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/03/09 13:53:33 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ p_list *cheapest(p_list *pile_a, p_list *pile_b)
     p_list *temp;
     p_list *cheapest;
 
-    cheapest = pile_b;
     ft_cmd_to_top(pile_a);
     ft_cmd_to_top(pile_b);
+    cheapest = pile_b;
     next = find_next_highest(pile_b->content, pile_a);
     min_stroke = cheapest->cmd + next->cmd;
     temp = pile_b;
@@ -82,8 +82,10 @@ int ft_size_tab(int *tab)
 {
 	int i;
 
+	if (!tab)
+		return (-666);
 	i = 0;
-	while (tab[i])
+	while (tab[i] != '\0')
 		i++;
 	return (i);
 }
@@ -113,6 +115,7 @@ int	*ft_trier(int *tab)
 		}
 		i++;
 	}
+	tab[i] = '\0';
 	return (tab);
 }
 
@@ -122,8 +125,8 @@ void	ft_set_position_v2(p_list **pile_a)
 	int i;
 	p_list	*temp;
 
-	tab = malloc(sizeof(int) * ft_pilesize(*pile_a) + 1);
-	if (!tab)
+	tab = ft_calloc((ft_pilesize(*pile_a) + 1), sizeof(int));
+	if (tab == NULL)
 		return ;
 	temp = *pile_a;
 	i = 1;
@@ -147,6 +150,7 @@ void	ft_set_position_v2(p_list **pile_a)
 		}
 		temp = temp->next;
 	}
+	free(tab);
 }
 
 void	ft_set_pos(p_list **pile)
@@ -163,27 +167,10 @@ void	ft_set_pos(p_list **pile)
 	}
 }
 
-int	ft_get_position(int next, p_list *pile_a)
-{
-	int	position;
-	p_list	*temp;
-
-	position = 0;
-	temp = pile_a;
-	while (temp)
-	{
-		if (temp->content == next)
-			position = temp->position;
-		temp = temp->next;
-	}
-	return (position);
-}
-
 void	algo_big(p_list **pile_a, p_list **pile_b)
 {
 	p_list	*cheap;
 	p_list	*next;
-
 
 	ft_fill_b_low(pile_a, pile_b);
 	ft_fill_b_high(pile_a, pile_b);
@@ -192,43 +179,6 @@ void	algo_big(p_list **pile_a, p_list **pile_b)
 	cheap = cheapest(*pile_a, *pile_b);
 	next = find_next_highest(cheap->content, *pile_a);
 	ft_2ndpart(pile_a, pile_b, cheap, next);
-	
-		//ft_faire_remonter(pile_a, pile_b, cheap, next);
-		//ft_put_cheap_top(pile_b, cheap);
-		//ft_put_next_top(pile_a, next);
-		// while ((*pile_a) != next && (*pile_b) != cheap)
-		// {
-		// 	if ((next->position >= ft_size_comp(*pile_a)) && (cheap->position) >= ft_size_comp(*pile_b))
-		// 	{
-		// 		ft_reverse_rotate_both(pile_a, pile_b);
-		// 	}
-		// 	else 
-		// 		ft_rotate_both(pile_a, pile_b);
-		// }
-	// 	while ((*pile_a) != next)
-	// 	{
-	// 		if (next->position >= ft_size_comp(*pile_a))
-	// 		{
-	// 			ft_reverse_rotate_a(pile_a);
-	// 		}
-	// 		else
-	// 		{	
-	// 			ft_rotate_a(pile_a);
-	// 		}
-	// 	}
-	// 	while ((*pile_b) != cheap)
-	// 	{
-	// 		if (cheap->position >= ft_size_comp(*pile_b))
-	// 		{
-	// 			ft_reverse_rotate_b(pile_b);
-	// 		}	
-	// 		else
-	// 		{	
-	// 			ft_rotate_b(pile_b);
-	// 		}
-	// 	}
-	// 	ft_push_a(pile_a, pile_b);
-	// }
 	while (ft_check_croissant(*pile_a) == 1)
 	{
 		if (ft_pilereturn_min(*pile_a)->position >= ft_size_comp(*pile_a))
@@ -290,6 +240,7 @@ int	main(int ac, char **av)
 		ft_pileadd_back(&pile_a, new);
 		i++;
 	}
+
 	// temp = pile_b;
 	// while (temp)
 	// {
@@ -305,8 +256,11 @@ int	main(int ac, char **av)
 		algo5(&pile_a, &pile_b);
 	else if (ft_pilesize(pile_a) > 5)
 		algo_big(&pile_a, &pile_b);
+	// free(pile_a);
+	//free(pile_b);
 	//ft_print_piles(pile_a, pile_b);
-	free(pile_a);
+	ft_free_list(pile_a);
+	ft_free_list(pile_b);
 	// printf("%d\n", ft_check_croissant(pile_a));
 	// //ft_rotate(&pile_a);
 	// ft_print_piles(pile_a, pile_b);
