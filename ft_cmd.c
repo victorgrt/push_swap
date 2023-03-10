@@ -6,15 +6,26 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 12:43:03 by victor            #+#    #+#             */
-/*   Updated: 2023/03/09 16:39:30 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/03/10 12:56:23 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* Pour push le lowest :
-compter le nombres de coups pour faire remonter en haut de B ft_cmd_to_top();
-*/
+void	ft_set_position(t_stack **pile)
+{
+	int		i;
+	t_stack	*current;
+
+	i = 1;
+	current = *pile;
+	while (current)
+	{
+		current->position = i;
+		current = current->next;
+		i++;
+	}
+}
 
 int	ft_find_low_cost(t_stack *pile_a, t_stack *pile_b)
 {

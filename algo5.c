@@ -6,18 +6,18 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 17:39:14 by vgoret            #+#    #+#             */
-/*   Updated: 2023/03/09 16:39:30 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/03/10 13:25:17 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	algo5(t_stack **pile_a, t_stack **pile_b)
+void	algo5(t_stack **pile_a, t_stack **pile_b)
 {
 	t_stack	*min;
 
 	if (ft_check_croissant(*pile_a) == 0)
-		return (0);
+		return ;
 	while (ft_pilesize(*pile_a) != 3)
 	{	
 		ft_set_pos(pile_a);
@@ -34,7 +34,6 @@ int	algo5(t_stack **pile_a, t_stack **pile_b)
 	algo3(pile_a);
 	while (*pile_b)
 		ft_push_a(pile_a, pile_b);
-	return (0);
 }
 
 /*int	main(int ac, char **av)

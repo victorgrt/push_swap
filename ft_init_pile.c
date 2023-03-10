@@ -6,26 +6,11 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 12:18:45 by victor            #+#    #+#             */
-/*   Updated: 2023/03/09 16:39:30 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/03/10 12:57:18 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	ft_set_position(t_stack **pile)
-{
-	int		i;
-	t_stack	*current;
-
-	i = 1;
-	current = *pile;
-	while (current)
-	{
-		current->position = i;
-		current = current->next;
-		i++;
-	}
-}
 
 void	ft_set_cmd(t_stack **pile)
 {
