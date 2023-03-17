@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
+/*   By: victor <victor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 17:26:47 by vgoret            #+#    #+#             */
-/*   Updated: 2023/03/10 15:42:49 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/03/17 14:44:35 by victor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,11 @@ void	ft_dispache(t_stack **pile_a, t_stack **pile_b)
 		ft_rotate_a(pile_a);
 	if (ft_pilesize(*pile_a) == 3)
 		algo3(pile_a);
-	else if (ft_pilesize(*pile_a) <= 5)
+	else if (ft_pilesize(*pile_a) == 5 || ft_pilesize(*pile_a) == 4)
 		algo5(pile_a, pile_b);
 	else if (ft_pilesize(*pile_a) > 5)
+		algo60(pile_a, pile_b);
+	else if (ft_pilesize(*pile_a) > 15)
 		algo_big(pile_a, pile_b);
 	ft_free_list(*pile_a);
 	ft_free_list(*pile_b);
@@ -76,5 +78,6 @@ int	main(int ac, char **av)
 		return (0);
 	}
 	ft_dispache(&pile_a, &pile_b);
+	//ft_print_piles(pile_a, pile_b)
 	return (0);
 }

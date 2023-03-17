@@ -3,15 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
+/*   By: victor <victor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 16:32:25 by vgoret            #+#    #+#             */
-/*   Updated: 2023/03/10 13:52:51 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/03/11 02:05:34 by victor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+
+# include <stdlib.h>
+# include <fcntl.h>
+# include <unistd.h>
+# include <stddef.h>
 
 # include <limits.h>
 # include <stdlib.h>
@@ -19,8 +24,21 @@
 # include "./libft/libft.h"
 # include "./ft_printf/ft_printf.h"
 
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 4096 
+# endif
+
+void	*ft_calloc2(size_t nmemb, size_t size);
+
+char	*ft_strjoin2(char *s1, char *s2);
+char	*get_next_line(int fd);
+
+int		ft_strlen2(char *str);
+
+
 void	algo3(t_stack **pile);
 void	algo5(t_stack **pile_a, t_stack **pile_b);
+void    algo60(t_stack **pile_a, t_stack **pile_b);
 void	algo_big(t_stack **pile_a, t_stack **pile_b);
 
 void	ft_rotate_a(t_stack **pile);
