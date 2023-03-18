@@ -6,20 +6,19 @@
 /*   By: victor <victor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 02:18:29 by victor            #+#    #+#             */
-/*   Updated: 2023/03/17 14:44:21 by victor           ###   ########.fr       */
+/*   Updated: 2023/03/18 14:17:15 by victor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "checker_bonus.h"
 #include "push_swap.h"
 
-int execute_instruction(t_stack **stack_a, t_stack **stack_b, char *instruction)
+void	*execute_instruction(t_stack **stack_a, t_stack **stack_b, char *instruction)
 {
     if (ft_strncmp(instruction, "sa\n", 3) == 0)
         ft_swap_a(stack_a);
     else if (ft_strncmp(instruction, "sb\n", 3) == 0)
         ft_swap_b(stack_b);
-    // else if (ft_strncmp(instruction, "ss\n", 3) == 0)
-    //     ft_swap_s(stack_a, stack_b);
     else if (ft_strncmp(instruction, "pa\n", 3) == 0)
         ft_push_a(stack_a, stack_b);
     else if (ft_strncmp(instruction, "pb\n", 3) == 0)
@@ -36,29 +35,76 @@ int execute_instruction(t_stack **stack_a, t_stack **stack_b, char *instruction)
         ft_reverse_rotate_b(stack_b);
     else if (ft_strncmp(instruction, "rrr\n", 4) == 0)
         ft_reverse_rotate_both(stack_a, stack_b);
-    else
-        return (0);
-    return (1);
+	else
+		jaideserreurs(stack_a, stack_b, instruction);
+	return (get_next_line(0, 0));
 }
 
-
-// int main(int ac, char **av)
+// void    ft_boucle_read(t_stack **pile_a, t_stack **pile_b, char *str)
 // {
-// 	t_stack	*pile_a;
-// 	// t_stack	*pile_b;
-// 	t_stack	*new;	
-//     char	*line;
-// 	int		i;
-// 	int		fd;
+//     char    *tmp;
 
-// 	pile_a = NULL;
-// 	// pile_b = NULL;
-// 	new = NULL;
-// 	if (ac == 1)
+//     while (str != 0)
+//     {
+//         tmp = str;
+//         str = exec
+//         free(tmp);
+//     }
+//     if (execute_instruction(&pile_a, &pile_b, str) == 0)
+//         write(1, "KO\n", 3);
+// }
+
+int main(int ac, char **av)
+{
+	char *line;
+	t_stack	*pile_a;
+	t_stack	*pile_b;
+    t_stack *new;
+    int i = 1;
+	
+		pile_a = NULL;
+	pile_b = NULL;
+	new = NULL;
+	if (ac <= 2)
+		return (0);
+	if (ft_master_checker(av, ac) == 1)
+        return (0);
+	while (i < ac)
+	{
+		new = ft_pilenew(ft_atol(av[i]));
+		if (new == NULL)
+			return (1);
+		ft_pileadd_back(&pile_a, new);
+		i++;
+	}
+	if (ft_check_croissant(pile_a) == 0)
+	{
+		ft_free_list(pile_a);
+		return (0);
+	}
+	line = get_next_line(0, 0);
+	printf("1 : %s\n", line);
+	ft_dispache(&pile_a, &pile_b);
+	printf("2 : %s\n", line);
+	line = get_next_line(0, 1);
+	printf("3 : %s\n", line);
+    return (0);
+}
+
+// int	main(int ac, char **av)
+// {	
+// 	t_stack	*pile_a;
+// 	t_stack	*pile_b;
+//     t_stack *new;
+
+// 	char 	*str;
+//     int i = 1;
+// 	if (ac <= 2)
 // 		return (0);
 // 	if (ft_master_checker(av, ac) == 1)
-// 		return (0);
-// 	i = 1;
+//         return (0);
+// 	str = get_next_line(0);
+// 	pile_b = NULL;
 // 	while (i < ac)
 // 	{
 // 		new = ft_pilenew(ft_atol(av[i]));
@@ -67,73 +113,8 @@ int execute_instruction(t_stack **stack_a, t_stack **stack_b, char *instruction)
 // 		ft_pileadd_back(&pile_a, new);
 // 		i++;
 // 	}
-// 	fd = open(av)
-//     while ((line = get_next_line(1)))
-//     {
-// 		printf("%s\n", line);
-//         // if (!execute_instruction(&pile_a, &pile_b, line))
-//         // {
-//         //     free(line);
-//         //     // return (print_error());
-// 		// 	printf("ici");
-//         // }
-//         free(line);
-//     }
-//     if (ft_check_croissant(pile_a) == 0)
-//         ft_putstr("OK\n");
-//     else
-//         ft_putstr("KO\n");
-//     return (0);
-// }
-
-typedef struct s_instruction
-{
-    char *instr;
-    struct s_instruction *next;
-} t_instruction;
-
-
-// int main(void)
-// {
-//     t_instruction *head = NULL;
-//     t_instruction *curr = NULL;
-
-//     char *line;
-//     while ((line = get_next_line(0)) != NULL)
-//     {
-//         if (head == NULL)
-//         {
-//             head = malloc(sizeof(t_instruction));
-//             curr = head;
-//         }
-//         else
-//         {
-//             curr->next = malloc(sizeof(t_instruction));
-//             curr = curr->next;
-//         }
-//         curr->instr = line;
-//         curr->next = NULL;
-//         printf("Instruction lue : %s\n", line);
-//     }
-
-//     // Affichage des instructions stockées dans la liste chaînée
-//     curr = head;
-//     printf("Instructions stockées :\n");
-//     while (curr != NULL)
-//     {
-//         printf("%s\n", curr->instr);
-//         curr = curr->next;
-//     }
-
-//     // Libération de la mémoire allouée pour la liste chaînée
-//     curr = head;
-//     while (curr != NULL)
-//     {
-//         t_instruction *next = curr->next;
-//         free(curr->instr);
-//         free(curr);
-//         curr = next;
-//     }
-
-//     return 0;
+// 	boucle_read(pile_a, pile_b, str);
+//     free(pile_a);
+//     free(pile_b);
+// 	return (0);
 // }

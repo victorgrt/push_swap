@@ -6,7 +6,7 @@
 /*   By: victor <victor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 01:59:44 by victor            #+#    #+#             */
-/*   Updated: 2023/03/11 12:51:44 by victor           ###   ########.fr       */
+/*   Updated: 2023/03/18 14:05:21 by victor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ char	*recupfile(char *save)
 	lu = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!lu)
 		return (NULL);
-	ouvert = 1;
+	ouvert = 0;
 	while (ouvert > 0)
 	{
-		ouvert = read(STDIN_FILENO, lu, BUFFER_SIZE);
+		ouvert = read(0, lu, BUFFER_SIZE);
 		if (ouvert < 0)
 		{
 			free(lu);
@@ -131,12 +131,14 @@ suivante). Finalement, on va return line qui contient donc une seule ligne
 du fichier.
 */
 
-char	*get_next_line(int fd)
+char	*get_next_line(int fd, int flag)
 {
 	static char	*save[1024];
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (NULL);
+	if (flag == 1)
 		return (NULL);
 	save[fd] = recupfile(save[fd]);
 	line = recupline(save[fd]);

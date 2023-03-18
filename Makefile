@@ -6,7 +6,7 @@
 #    By: victor <victor@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/13 13:18:09 by vgoret            #+#    #+#              #
-#    Updated: 2023/03/11 02:24:42 by victor           ###   ########.fr        #
+#    Updated: 2023/03/18 14:03:37 by victor           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ SRC = algo3.c algo5.c algo60.c ft_algo_big.c \
 	ft_push.c ft_rotate.c ft_rotate2.c ft_swap.c \
 	ft_atol.c ft_checker.c ft_check_order.c \
 	ft_print_pile.c ft_pilefind.c ft_init_pile.c \
-	checker.c get_next_line.c get_next_line_utils.c \
+	checker.c checker_utils.c get_next_line.c get_next_line_utils.c \
 	main.c \
 
 OBJ = ${SRC:.c=.o}

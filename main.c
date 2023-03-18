@@ -6,7 +6,7 @@
 /*   By: victor <victor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 17:26:47 by vgoret            #+#    #+#             */
-/*   Updated: 2023/03/17 14:44:35 by victor           ###   ########.fr       */
+/*   Updated: 2023/03/17 14:52:16 by victor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,35 +49,35 @@ void	ft_dispache(t_stack **pile_a, t_stack **pile_b)
 	ft_free_list(*pile_b);
 }
 
-int	main(int ac, char **av)
-{
-	t_stack	*pile_a;
-	t_stack	*pile_b;
-	t_stack	*new;	
-	int		i;
+// int	main(int ac, char **av)
+// {
+// 	t_stack	*pile_a;
+// 	t_stack	*pile_b;
+// 	t_stack	*new;	
+// 	int		i;
 
-	pile_a = NULL;
-	pile_b = NULL;
-	new = NULL;
-	if (ac == 1)
-		return (0);
-	if (ft_master_checker(av, ac) == 1)
-		return (0);
-	i = 1;
-	while (i < ac)
-	{
-		new = ft_pilenew(ft_atol(av[i]));
-		if (new == NULL)
-			return (1);
-		ft_pileadd_back(&pile_a, new);
-		i++;
-	}
-	if (ft_check_croissant(pile_a) == 0)
-	{
-		ft_free_list(pile_a);
-		return (0);
-	}
-	ft_dispache(&pile_a, &pile_b);
-	//ft_print_piles(pile_a, pile_b)
-	return (0);
-}
+// 	pile_a = NULL;
+// 	pile_b = NULL;
+// 	new = NULL;
+// 	if (ac == 1)
+// 		return (0);
+// 	if (ft_master_checker(av, ac) == 1)
+// 		return (0);
+// 	i = 1;
+// 	while (i < ac)
+// 	{
+// 		new = ft_pilenew(ft_atol(av[i]));
+// 		if (new == NULL)
+// 			return (1);
+// 		ft_pileadd_back(&pile_a, new);
+// 		i++;
+// 	}
+// 	if (ft_check_croissant(pile_a) == 0)
+// 	{
+// 		ft_free_list(pile_a);
+// 		return (0);
+// 	}
+// 	ft_dispache(&pile_a, &pile_b);
+// 	//ft_print_piles(pile_a, pile_b)
+// 	return (0);
+// }
