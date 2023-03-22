@@ -6,7 +6,7 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 13:19:38 by vgoret            #+#    #+#             */
-/*   Updated: 2023/03/22 13:24:00 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/03/22 17:24:57 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,22 +67,6 @@ void	ft_rotate_b2(t_stack **pile)
 }
 
 void	ft_reverse_rotate_a2(t_stack **pile)
-{
-	t_stack	*temp;
-	t_stack	*last;
-
-	if (!pile || !*pile || !(*pile)->next)
-		return ;
-	temp = *pile;
-	while (temp->next->next)
-		temp = temp->next;
-	last = temp->next;
-	temp->next = NULL;
-	last->next = *pile;
-	*pile = last;
-}
-
-void	ft_reverse_rotate_b2(t_stack **pile)
 {
 	t_stack	*temp;
 	t_stack	*last;

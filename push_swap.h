@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victor <victor@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 16:32:25 by vgoret            #+#    #+#             */
-/*   Updated: 2023/03/18 14:04:50 by victor           ###   ########.fr       */
+/*   Updated: 2023/03/22 17:24:05 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 
 void	algo3(t_stack **pile);
 void	algo5(t_stack **pile_a, t_stack **pile_b);
-void    algo60(t_stack **pile_a, t_stack **pile_b);
+void	algo60(t_stack **pile_a, t_stack **pile_b);
 void	algo_big(t_stack **pile_a, t_stack **pile_b);
 
 void	ft_rotate_a(t_stack **pile);
@@ -86,7 +86,7 @@ t_stack	*cheapest(t_stack *pile_a, t_stack *pile_b);
 
 void	ft_dispache(t_stack **pile_a, t_stack **pile_b);
 
-int	ft_strlen2(char *str);
+int		ft_strlen2(char *str);
 void	*ft_calloc2(size_t nmemb, size_t size);
 char	*ft_strjoin2(char *s1, char *s2);
 
