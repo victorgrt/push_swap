@@ -6,7 +6,7 @@
 #    By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/14 13:54:05 by vgoret            #+#    #+#              #
-#    Updated: 2023/03/09 12:17:01 by vgoret           ###   ########.fr        #
+#    Updated: 2023/03/22 11:02:54 by vgoret           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ PROG = libft.a
 OBJ = ${SRC:.c=.o}
 
 .c.o:
-	cc -Wall -Wextra -Werror -c $< -o ${<:.c=.o}
+	@cc -Wall -Wextra -Werror -c $< -o ${<:.c=.o}
 
 ${PROG}: ${OBJ}
 	ar rc ${PROG} ${OBJ}

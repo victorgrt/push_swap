@@ -6,7 +6,7 @@
 #    By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 17:24:08 by vgoret            #+#    #+#              #
-#    Updated: 2023/02/15 15:54:47 by vgoret           ###   ########.fr        #
+#    Updated: 2023/03/22 11:03:08 by vgoret           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRC = ft_printf.c ft_putstr.c ft_print_void.c ft_print_nb.c ft_print_unsigned.c 
 OBJ = ${SRC:.c=.o}
 
 .c.o:
-	gcc -Wall -Wextra -Werror -c $< -o ${<:.c=.o}
+	@gcc -Wall -Wextra -Werror -c $< -o ${<:.c=.o}
 
 ${NAME}:${OBJ}
 	ar rc ${NAME} ${OBJ}

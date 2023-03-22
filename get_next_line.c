@@ -3,14 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victor <victor@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 01:59:44 by victor            #+#    #+#             */
-/*   Updated: 2023/03/18 14:05:21 by victor           ###   ########.fr       */
+/*   Updated: 2023/03/22 17:05:26 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	laftmagicderuru(char *s)
+{
+	int	i;
+
+	i = 0;
+	if (!s)
+		return (0);
+	while (s[i])
+	{
+		if (s[i] == '\n')
+			return (1);
+		i++;
+	}
+	return (0);
+}
 
 char	*recupfile(char *save)
 {
@@ -20,8 +36,8 @@ char	*recupfile(char *save)
 	lu = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!lu)
 		return (NULL);
-	ouvert = 0;
-	while (ouvert > 0)
+	ouvert = 1;
+	while (!laftmagicderuru(save) && ouvert > 0)
 	{
 		ouvert = read(0, lu, BUFFER_SIZE);
 		if (ouvert < 0)
@@ -35,16 +51,6 @@ char	*recupfile(char *save)
 	free(lu);
 	return (save);
 }
-
-/*
-!recupline : Cette fonction nous sert a recuperer une seule ligne.
-On commence par s'assurer que save n'est pas vide. Ensuite, on va parcourir
-save tant qu'on ne trouve ni '\n' ni '\0' en ajoutant 1 pour bien prendre le \n.
-On malloc une nouvelle chaine en fonction de la len qu'on a obtenu et on le
-securise. Et maintenant, tant que notre compteur est inf a len, on va remplir
-la nouvelle chaine des characteres de save. Finalement, on ajoute un '\0' a 
-la fin de str pour pas avoir de soucis de memoires et on la return.
-*/
 
 char	*recupline(char *save)
 {
@@ -73,20 +79,6 @@ char	*recupline(char *save)
 	str[i] = '\0';
 	return (str);
 }
-
-/* 
-! trimming_static :
-Il se peut qu'on ait lu un partie de la liste suivante a cause de 
-BUFFER_SIZE donc on a besoin de trimmer save pour s'assurer qu'on
-ne perdre pas de donnees.
-On a besoin d'un buffeur pour ne pas perdre de donnees et de deux compteurs.
-On commence par verifier que save n'est pas vide. Ensuite on va parcourir la
-chaine jusqu'a trouve un '\n' ou '\0' + 1 pour avoir le '\n'.
-Ensuite on malloc notre buffeur avec ft_strlen et i et on le securise.
-Maintenant on va remplir notre buffeur avec les characteres de save
-tant qu'on a pas trouve notre prochain '\0'. Quand c'est fini, on ajoute
-un '\0' a la main et on return notre buffer.
-*/
 
 char	*trimming_static(char *save)
 {
@@ -117,32 +109,18 @@ char	*trimming_static(char *save)
 	return (free(save), buff);
 }
 
-/*
-! get_next_line :
-On defini notre variable statique ainsi qu'une nouvelle chaine. Ensuite on
-verifie que notre parametre et notre BUFFER_SIZE sont supperieurs a 0.
-On va commencer par appeler notre fonction recupfile qui va recuperer
-toutes les lignes de notre fichier et lire toutes les lignes (open et read).
-Maintenant on va appeler notre fonction recupline qui va recuperer
-lignes par lignes et on va stocker ca dans line pour plus tard.
-Finalement on appelle notre fonction grostrimard (dans save) pour s'assurer
-qu'on a bien une seule ligne dans save et pas de characteres en trop (ligne
-suivante). Finalement, on va return line qui contient donc une seule ligne
-du fichier.
-*/
-
 char	*get_next_line(int fd, int flag)
 {
-	static char	*save[1024];
+	static char	*save;
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	if (flag == 1)
-		return (NULL);
-	save[fd] = recupfile(save[fd]);
-	line = recupline(save[fd]);
-	save[fd] = trimming_static(save[fd]);
+		return (free(save), NULL);
+	save = recupfile(save);
+	line = recupline(save);
+	save = trimming_static(save);
 	return (line);
 }
 
