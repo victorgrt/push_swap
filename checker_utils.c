@@ -6,7 +6,7 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 13:59:37 by victor            #+#    #+#             */
-/*   Updated: 2023/03/22 17:26:43 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/03/23 10:36:25 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	jaideserreurs(t_stack **stack_a, t_stack **stack_b, char *str)
 {
 	write(1, "Error\n", 6);
 	freetout(stack_a, stack_b, str);
+	get_next_line(0, 1);
 	exit(0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 01:59:44 by victor            #+#    #+#             */
-/*   Updated: 2023/03/22 17:05:26 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/03/23 11:30:29 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,14 @@ int	laftmagicderuru(char *s)
 	int	i;
 
 	i = 0;
-	if (!s)
-		return (0);
-	while (s[i])
+	if (s)
 	{
-		if (s[i] == '\n')
-			return (1);
-		i++;
+		while (s[i] != '\0')
+		{
+			if (s[i] == '\n')
+				return (1);
+			i++;
+		}
 	}
 	return (0);
 }
@@ -37,7 +38,7 @@ char	*recupfile(char *save)
 	if (!lu)
 		return (NULL);
 	ouvert = 1;
-	while (!laftmagicderuru(save) && ouvert > 0)
+	while (laftmagicderuru(save) == 0 && ouvert > 0)
 	{
 		ouvert = read(0, lu, BUFFER_SIZE);
 		if (ouvert < 0)
@@ -97,7 +98,7 @@ char	*trimming_static(char *save)
 		return (free(save), NULL);
 	buff = malloc(sizeof(char) * (ft_strlen2(save) - i + 1));
 	if (!buff)
-		return (free(buff), free(save), NULL);
+		return (free(save), NULL);
 	j = 0;
 	while (save[i] != '\0')
 	{

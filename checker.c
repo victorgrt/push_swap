@@ -6,7 +6,7 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 02:18:29 by victor            #+#    #+#             */
-/*   Updated: 2023/03/22 17:30:02 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/03/23 11:36:33 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,25 +46,34 @@ void	execute_instruction(t_stack **stack_a, t_stack **stack_b, char *instruc)
 void	ft_boucle_read(t_stack *pile_a, t_stack *pile_b)
 {
 	char	*line;
-	int		last_size;
 
 	line = "test";
-	last_size = 1;
-	while (line && last_size)
+	while (line)
 	{
 		line = get_next_line(0, 0);
 		if (!line)
-			break ;
-		last_size = ft_strlen(line);
-		if (last_size == 0)
 			break ;
 		execute_instruction(&pile_a, &pile_b, line);
 		free(line);
 	}
 	if (ft_check_croissant(pile_a) == 0 && ft_pilesize(pile_b) == 0)
+	{
 		write(1, "OK\n", 3);
+		ft_free_list(pile_a);
+		ft_free_list(pile_b);
+	}
 	else
+	{
 		write(1, "KO\n", 3);
+		ft_free_list(pile_a);
+		ft_free_list(pile_b);
+	}
+}
+
+void	lefreefou(t_stack **pile_a, t_stack **pile_b)
+{
+	ft_free_list2(*pile_a);
+	ft_free_list2(*pile_b);
 }
 
 int	main(int ac, char **av)
@@ -86,13 +95,11 @@ int	main(int ac, char **av)
 	{
 		new = ft_pilenew(ft_atol(av[i]));
 		if (new == NULL)
-			return (1);
+			return (lefreefou(&pile_a, &pile_b), 1);
 		ft_pileadd_back(&pile_a, new);
 		i++;
 	}
 	ft_boucle_read(pile_a, pile_b);
-	ft_free_list(pile_a);
-	ft_free_list(pile_b);
 	return (0);
 }
 

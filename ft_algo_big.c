@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_algo_big.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victor <victor@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:39:10 by vgoret            #+#    #+#             */
-/*   Updated: 2023/03/11 01:59:31 by victor           ###   ########.fr       */
+/*   Updated: 2023/03/23 12:29:59 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,10 @@ t_stack	*cheapest(t_stack *pile_a, t_stack *pile_b)
 	t_stack	*cheapest;
 	int		min_stroke;
 
+
+	cheapest = pile_b;
 	ft_cmd_to_top(pile_a);
 	ft_cmd_to_top(pile_b);
-	cheapest = pile_b;
 	next = find_next_highest(pile_b->content, pile_a);
 	min_stroke = cheapest->cmd + next->cmd;
 	temp = pile_b;
@@ -69,14 +70,13 @@ void	algo_big(t_stack **pile_a, t_stack **pile_b)
 	ft_set_pos(pile_a);
 	ft_set_pos(pile_b);
 	cheap = cheapest(*pile_a, *pile_b);
-	next = find_next_highest(cheap->content, *pile_a);
+	next = find_next_highest(cheap->content, *pile_a);	
+	ft_push_a(pile_a, pile_b);
 	ft_2ndpart(pile_a, pile_b, cheap, next);
 	while (ft_check_croissant(*pile_a) == 1)
 	{
 		if (ft_pilereturn_min(*pile_a)->position >= ft_size_comp(*pile_a))
-		{
 			ft_reverse_rotate_a(pile_a);
-		}
 		else if (ft_pilereturn_min(*pile_a)->position < ft_size_comp(*pile_a))
 			ft_rotate_a(pile_a);
 	}

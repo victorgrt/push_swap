@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victor <victor@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 17:26:47 by vgoret            #+#    #+#             */
-/*   Updated: 2023/03/17 14:52:16 by victor           ###   ########.fr       */
+/*   Updated: 2023/03/23 12:33:57 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,43 +41,39 @@ void	ft_dispache(t_stack **pile_a, t_stack **pile_b)
 		algo3(pile_a);
 	else if (ft_pilesize(*pile_a) == 5 || ft_pilesize(*pile_a) == 4)
 		algo5(pile_a, pile_b);
-	else if (ft_pilesize(*pile_a) > 5)
+	else if (ft_pilesize(*pile_a) > 5 && ft_pilesize(*pile_a) <= 15)
 		algo60(pile_a, pile_b);
-	else if (ft_pilesize(*pile_a) > 15)
+	else
 		algo_big(pile_a, pile_b);
 	ft_free_list(*pile_a);
 	ft_free_list(*pile_b);
 }
 
-// int	main(int ac, char **av)
-// {
-// 	t_stack	*pile_a;
-// 	t_stack	*pile_b;
-// 	t_stack	*new;	
-// 	int		i;
+int	main(int ac, char **av)
+{
+	t_stack	*pile_a;
+	t_stack	*pile_b;
+	t_stack	*new;	
+	int		i;
 
-// 	pile_a = NULL;
-// 	pile_b = NULL;
-// 	new = NULL;
-// 	if (ac == 1)
-// 		return (0);
-// 	if (ft_master_checker(av, ac) == 1)
-// 		return (0);
-// 	i = 1;
-// 	while (i < ac)
-// 	{
-// 		new = ft_pilenew(ft_atol(av[i]));
-// 		if (new == NULL)
-// 			return (1);
-// 		ft_pileadd_back(&pile_a, new);
-// 		i++;
-// 	}
-// 	if (ft_check_croissant(pile_a) == 0)
-// 	{
-// 		ft_free_list(pile_a);
-// 		return (0);
-// 	}
-// 	ft_dispache(&pile_a, &pile_b);
-// 	//ft_print_piles(pile_a, pile_b)
-// 	return (0);
-// }
+	pile_a = NULL;
+	pile_b = NULL;
+	new = NULL;
+	if (ac == 1)
+		return (0);
+	if (ft_master_checker(av, ac) == 1)
+		return (0);
+	i = 1;
+	while (i < ac)
+	{
+		new = ft_pilenew(ft_atol(av[i]));
+		if (new == NULL)
+			return (1);
+		ft_pileadd_back(&pile_a, new);
+		i++;
+	}
+	if (ft_check_croissant(pile_a) == 0)
+		return (ft_free_list(pile_a), 0);
+	ft_dispache(&pile_a, &pile_b);
+	return (0);
+}
