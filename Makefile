@@ -6,7 +6,7 @@
 #    By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/13 13:18:09 by vgoret            #+#    #+#              #
-#    Updated: 2023/03/23 14:06:33 by vgoret           ###   ########.fr        #
+#    Updated: 2023/03/23 14:50:02 by vgoret           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,6 +79,7 @@ re : fclean all
 RED=\033[0;31m
 GREEN= \033[1;32m
 BLUE= \033[1;34m
+PURP= \033[1;35m
 NC=\033[0m # No Color
 
 fclean_util : 
@@ -86,7 +87,7 @@ fclean_util :
 	@tput sgr0;
 	@${foreach value, $(OBJ), echo "\\033[1;31m >> \\033[0;39m" ${value};}
 	@${foreach value, $(NAME), echo "\\033[1;31m >> \\033[0;39m" ${value};} 
-	@echo "⣿⣷⡶⠚⠉⢀⣤⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⠠⣴⣿⣿⣿⣿⣶⣤⣤⣤\n⠿⠥⢶⡏⣸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⢀⣴⣷⣌⢿⣿⣿⣿⣿⣿⣿⣿\n⣍⡛⢷⣠⣿⣿⣿⣿⣿⣟⠻⣯⠽⣿⣿⠟⠁⣠⠿⠿⣿⣿⣎⠻⣿⣿⣿⡿⠟⣿\n⣿⣿⣦⠙⣿⣿⣿⣿⣿⣿⣷⣏⡧⠙⠁⣀⢾⣧    ⠈⣿⡟  ⠙⣫⣵⣶⠇⣋\n⣿⣿⣿⢀⣿⣿⣿⣿⣿⣿⣿⠟⠃⢀⣀⢻⣎⢻⣷⣤⣴⠟  ⣠⣾⣿⢟⣵⡆⢿\n⣿⣯⣄⢘⢻⣿⣿⣿⣿⡟⠁⢀⣤⡙⢿⣴⣿⣷⡉⠉⢀  ⣴⣿⡿⣡⣿⣿⡿⢆\n⠿⣿⣧⣤⡘⢿⣿⣿⠏  ⡔⠉⠉⢻⣦⠻⣿⣿⣶⣾⡟⣼⣿⣿⣱⣿⡿⢫⣾⣿\n⣷⣮⣝⣛⣃⡉⣿⡏  ⣾⣧⡀    ⣿⡇⢘⣿⠋    ⠻⣿⣿⣿⢟⣵⣿⣿⣿\n⣿⣿⣿⣿⣿⣿⣌⢧⣴⣘⢿⣿⣶⣾⡿⠁⢠⠿⠁⠜    ⣿⣿⣿⣿⡿⣿⣿⣿\n⣿⣿⣿⣿⣿⣿⣿⣦⡙⣿⣷⣉⡛⠋    ⣰⣾⣦⣤⣤⣤⣿⢿⠟⢋⣴⣿⣿⣿\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣌⢿⣿⣿⣿⣿⢰⡿⣻⣿⣿⣿⣿⣿⢃⣰⣫⣾⣿⣿⣿\n⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡆⠿⠿⠿⠛⢰⣾⡿⢟⣭⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\n"
+	@echo "  ⢀⣤⣶⣶⣤⣄⡀\n⠀⢀⣿⣿⣿⣿⣿⣿⣿⡆\n⠀⠸⣿⣿⣿⣿⣿⡟⡟⡗ ⣿⠉⣿⠉⣿⡏⠹⡏⢹⡏⢹⣿⣿⠉⣿⠉⣿⡟⢋⠛⣿⠉⡟⢉⡏⠹⠏⣹⣿\n⠀⠀⠙⠏⠯⠛⣉⢲⣧⠟ ⣿⠄⣿⠄⣿⡇⡄⠁⢸⡇⢸⣿⣿⠄⣿⠄⣿⠄⣿⣿⣿⠄⡀⢻⣿⡄⢠⣿⣿\n⠀⠀⠠⢭⣝⣾⠿⣴⣿⠇ ⣿⣦⣤⣴⣿⣧⣿⣤⣼⣧⣬⣭⣿⣦⣤⣴⣿⣧⣤⣤⣿⣤⣷⣤⣿⣧⣼⣿⣿\n⠀⠀⢐⣺⡿⠁⠀⠈⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀ ⣶⣶⣶⣶⣶⣶⠀\n⠀⠀⣚⣿⠃ ⣶⣶⣶⣶\n⢀⣿⣿⣿⣷⢒⣢⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⣶⣶⣄⠄\n⢰⣿⣿⡿⣿⣦⠬⢝⡄⠀⠀⠀⠀⠀⠀⢠⣿⠿⠿⠟⠛⠋⠁\n⠠⢿⣿⣷⠺⣿⣗⠒⠜⡄⠀⠀⠀⠀⣴⠟⠁\n⠀⣰⣿⣷⣍⡛⣯⣯⣙⡁⠀⠀⣠⡾⠁\n⠀⠨⢽⣿⣷⢍⣛⣶⢷⣼⣠⣾⠋\n⠀⠀⠘⢿⣿⣖⠬⣹⣶⣿⠟⠁\n⠀⠀⠀⠚⠿⠿⡒⠨⠛⠋\n⠀⠀⠀⠐⢒⣛⣷\n⠀⠀⠀⢘⣻⣭⣭\n⠀⠀⠀⡰⢚⣺⣿\n⠀⠀⢠⣿⣿⣿⣿⣦⡄\n⠀⠀⢸⡿⢿⣿⢿⡿⠃\n⠀⠀⠘⡇⣸⣿⣿⣿⣆\n⠀⠀⠀⠀⠸⣿⡿⠉⠁\n⠀⠀⠀⠀⠀⢿⡟\n"
 	
 ok_util :
 	@clear
@@ -99,5 +100,28 @@ bonus_utils :
 	@sleep 0.5
 	@${foreach value, $(CHECKER_SRC), echo "${BLUE} >> \\033[0;39m" ${value};}
 	@sleep 0.5
-	@echo "\n${BLUE} DONE : ${GREEN}CHECKER ${BLUE} SUCCESFULLY CREATED\n"
+	@echo "\n${BLUE}DONE : ${GREEN}CHECKER ${BLUE} SUCCESFULLY CREATED"
 	
+test10 : ${NAME} ${CHECKER}
+	$(eval ARG = $(shell shuf -i 0-5000 -n 10))
+	@echo "Liste d'arguments : ${ARG}\n${GREEN}"
+	@./push_swap ${ARG} | ./checker ${ARG}
+	@echo "${NC}"
+	@echo -n "Nombre de coups : ${PURP}"
+	@./push_swap ${ARG} | wc -l	
+
+test100 : ${NAME} ${CHECKER}
+	$(eval ARG = $(shell shuf -i 0-5000 -n 100))
+	@echo "Liste d'arguments : ${ARG}\n${GREEN}"
+	@./push_swap ${ARG} | ./checker ${ARG}
+	@echo "${NC}"
+	@echo -n "Nombre de coups : ${PURP}"
+	@./push_swap ${ARG} | wc -l	
+
+test500 : ${NAME} ${CHECKER}
+	$(eval ARG = $(shell shuf -i 0-5000 -n 500))
+	@echo "Liste d'arguments : ${ARG}\n${GREEN}"
+	@./push_swap ${ARG} | ./checker ${ARG}
+	@echo "${NC}"
+	@echo -n "Nombre de coups : ${PURP}"
+	@./push_swap ${ARG} | wc -l
