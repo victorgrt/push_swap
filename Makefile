@@ -6,7 +6,7 @@
 #    By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/13 13:18:09 by vgoret            #+#    #+#              #
-#    Updated: 2023/03/23 14:50:02 by vgoret           ###   ########.fr        #
+#    Updated: 2023/03/26 13:40:40 by vgoret           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -102,6 +102,14 @@ bonus_utils :
 	@sleep 0.5
 	@echo "\n${BLUE}DONE : ${GREEN}CHECKER ${BLUE} SUCCESFULLY CREATED"
 	
+test5 : ${NAME} ${CHECKER}
+	$(eval ARG = $(shell shuf -i 0-5000 -n 5))
+	@echo "Liste d'arguments : ${ARG}\n${GREEN}"
+	@./push_swap ${ARG} | ./checker ${ARG}
+	@echo "${NC}"
+	@echo -n "Nombre de coups : ${PURP}"
+	@./push_swap ${ARG} | wc -l	
+
 test10 : ${NAME} ${CHECKER}
 	$(eval ARG = $(shell shuf -i 0-5000 -n 10))
 	@echo "Liste d'arguments : ${ARG}\n${GREEN}"
