@@ -6,7 +6,7 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:39:10 by vgoret            #+#    #+#             */
-/*   Updated: 2023/03/23 14:08:05 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/04/07 15:28:02 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,11 @@ void	algo_big(t_stack **pile_a, t_stack **pile_b)
 
 	ft_fill_b_low(pile_a, pile_b);
 	ft_fill_b_high(pile_a, pile_b);
+	ft_push_a(pile_a, pile_b);
 	ft_set_pos(pile_a);
 	ft_set_pos(pile_b);
 	cheap = cheapest(*pile_a, *pile_b);
 	next = find_next_highest(cheap->content, *pile_a);
-	ft_push_a(pile_a, pile_b);
 	ft_2ndpart(pile_a, pile_b, cheap, next);
 	while (ft_check_croissant(*pile_a) == 1)
 	{

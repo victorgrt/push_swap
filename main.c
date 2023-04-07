@@ -6,7 +6,7 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 17:26:47 by vgoret            #+#    #+#             */
-/*   Updated: 2023/03/23 12:33:57 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/04/07 15:45:28 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@ void	ft_dispache(t_stack **pile_a, t_stack **pile_b)
 {
 	if (ft_check_croissant(*pile_a) == 0)
 		return ;
-	if (ft_pilesize(*pile_a) == 2 && ft_check_croissant(*pile_a) == 1)
+	else if (ft_pilesize(*pile_a) == 2)
 		ft_rotate_a(pile_a);
-	if (ft_pilesize(*pile_a) == 3)
+	else if (ft_pilesize(*pile_a) == 3)
 		algo3(pile_a);
 	else if (ft_pilesize(*pile_a) == 5 || ft_pilesize(*pile_a) == 4)
 		algo5(pile_a, pile_b);
-	else if (ft_pilesize(*pile_a) > 5 && ft_pilesize(*pile_a) <= 15)
+	else if (ft_pilesize(*pile_a) <= 90)
 		algo60(pile_a, pile_b);
 	else
 		algo_big(pile_a, pile_b);

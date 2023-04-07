@@ -6,7 +6,7 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 16:20:22 by vgoret            #+#    #+#             */
-/*   Updated: 2023/03/26 18:24:47 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/04/07 14:30:24 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,10 @@ int	ft_atol_check(char *str)
 	resultat = 0;
 	if (!str)
 		return (1);
-	while (str[i] == '-' || str[i] == '+')
-		i++;
+	if ((str[i] == '-' || str[i] == '+')
+		&& (str[i + 1] == '-' || str[i + 1] == '+'))
+		return (2);
+	i++;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		resultat = resultat * 10 + str[i] - 48;

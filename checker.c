@@ -6,7 +6,7 @@
 /*   By: vgoret <vgoret@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 02:18:29 by victor            #+#    #+#             */
-/*   Updated: 2023/03/23 11:36:33 by vgoret           ###   ########.fr       */
+/*   Updated: 2023/04/07 18:55:30 by vgoret           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int	main(int ac, char **av)
 	pile_a = NULL;
 	pile_b = NULL;
 	new = NULL;
-	if (ac <= 2)
+	if (ac == 1)
 		return (0);
 	if (ft_master_checker(av, ac) == 1)
 		return (0);
